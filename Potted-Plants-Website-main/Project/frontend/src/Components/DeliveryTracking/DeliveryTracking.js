@@ -28,7 +28,7 @@ const DeliveryTracking = () => {
     <div>
       <CustomerDashboard/>
     <div className="container">
-      <h2 className="heading">Track Your Plant Delivery</h2>
+      <h2 className="heading">Track Your Plant</h2>
       <input
         type="text"
         placeholder="Enter Tracking ID (e.g. PP-2024-5X7Z9)"

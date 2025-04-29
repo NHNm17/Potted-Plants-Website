@@ -59,7 +59,7 @@ const CustomerDashboard = () => {
         </li>
         <li className="nav-bar">
         <Link to="/deliverytracking" className="active tracking-a">
-          <h4>Delivery Tracking</h4>
+          <h4>Tracking</h4>
           </Link>
         </li>
         <li className="nav-bar">
