@@ -1,0 +1,90 @@
+.container {
+  width: 100%;
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(58, 90, 64, 0.1); /* Green tint shadow */
+}
+
+.heading {
+  text-align: center;
+  color: #3A5A40; /* Your brand green */
+  font-size: 24px;
+  margin-bottom: 25px;
+}
+
+.input {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #d1d9d1; /* Light green-gray */
+  font-size: 16px;
+}
+
+.input:focus {
+  border-color: #3A5A40;
+  outline: none;
+}
+
+.button {
+  width: 100%;
+  padding: 12px;
+  background-color: #3A5A40; /* Brand green */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.button:hover {
+  background-color: #2d4730; /* Darker green */
+}
+
+.error {
+  color: #e74c3c;
+  text-align: center;
+  margin: 15px 0;
+  font-size: 14px;
+}
+
+.result {
+  margin-top: 25px;
+  padding: 20px;
+  background-color: #f8faf8; /* Very light green */
+  border-radius: 8px;
+  border-left: 4px solid #3A5A40;
+}
+
+.result h3 {
+  color: #3A5A40;
+  margin-bottom: 15px;
+}
+
+.result p {
+  margin: 10px 0;
+  color: #333;
+}
+
+.back-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: white;
+  color: #3A5A40;
+  border: 1px solid #3A5A40;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.back-button:hover {
+  background-color: #f0f5f0; /* Light green hover */
+}

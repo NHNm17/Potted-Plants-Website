@@ -1,0 +1,88 @@
+/* AddressForm.css */
+
+/* Form Container */
+form {
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Labels */
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  /* Inputs & Select */
+  input,
+  select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  input:focus,
+  select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+  }
+  
+  /* Buttons */
+  button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  /* Back Button */
+  button[type="button"] {
+    background-color: #6c757d;
+    color: white;
+  }
+  
+  button[type="button"]:hover {
+    background-color: #5a6268;
+  }
+  
+  /* Proceed Button */
+  button[type="submit"] {
+    background-color: #28a745;
+    color: white;
+    margin-top: 10px;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #218838;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    form {
+      padding: 15px;
+    }
+  
+    input,
+    select {
+      font-size: 14px;
+    }
+  
+    button {
+      font-size: 14px;
+      padding: 10px;
+    }
+  }
+  

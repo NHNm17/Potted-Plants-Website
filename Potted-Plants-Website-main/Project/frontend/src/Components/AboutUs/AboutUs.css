@@ -1,0 +1,134 @@
+/* Base styles */
+.about-us-container {
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .about-us-content {
+    background: rgba(50, 70, 50, 0.85);
+    padding: 30px;
+    width: 90%;
+    max-width: 800px;
+    margin: 50px auto;
+    border-radius: 12px;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
+    text-align: center;
+    flex: 1;
+  }
+  
+  /* Background image */
+  .about-us-container::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+  
+  /* Typography */
+  h1 {
+    color: #4CAF50;
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+  
+  .intro-text {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .info-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .info-card p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  /* Section titles */
+  .mission-title {
+    color: #FFD700;
+  }
+  
+  .offer-title {
+    color: #FFA500;
+  }
+  
+  .vision-title {
+    color: #00CED1;
+  }
+  
+  .community-title {
+    color: #32CD32;
+  }
+  
+  /* List styles */
+  .offer-list {
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.6;
+    padding-left: 20px;
+    list-style-type: none;
+  }
+  
+  .offer-list li {
+    margin-bottom: 8px;
+  }
+  
+  /* Layout */
+  .cards-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .cards-container .info-card {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  /* Button styles */
+  .back-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 18px;
+    background: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .back-button:hover {
+    background-color: #3e8e41;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .about-us-content {
+      width: 95%;
+      padding: 20px;
+    }
+    
+    .cards-container {
+      flex-direction: column;
+    }
+    
+    .cards-container .info-card {
+      width: 100%;
+      min-width: auto;
+    }
+  }

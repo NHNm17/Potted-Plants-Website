@@ -1,0 +1,99 @@
+/* AddressBook.css */
+
+/* Container Styling */
+.address-book {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  h2 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Button Styling */
+  .btn {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 10px 5px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Address List */
+  .address-list {
+    margin-top: 20px;
+  }
+  
+  /* Address Card Styling */
+  .card {
+    background: white;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+  }
+  
+  .card h3 {
+    margin: 0 0 10px;
+    color: #007bff;
+  }
+  
+  .card p {
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  .card-actions {
+    margin-top: 10px;
+  }
+  
+  /* Edit Button */
+  .edit-btn {
+    background-color: #ffc107;
+  }
+  
+  .edit-btn:hover {
+    background-color: #e0a800;
+  }
+  
+  /* Delete Button */
+  .delete-btn {
+    background-color: #dc3545;
+  }
+  
+  .delete-btn:hover {
+    background-color: #c82333;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .address-book {
+      padding: 15px;
+    }
+  
+    .btn {
+      padding: 8px 12px;
+      font-size: 14px;
+    }
+  
+    .card {
+      padding: 10px;
+    }
+  }
+  

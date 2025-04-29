@@ -1,0 +1,121 @@
+.cart {
+    padding: 20px;
+    max-width: 600px;
+    margin: 50px auto 0;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+}
+
+.cart h1 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 1px solid #ddd;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-bottom: 15px;
+}
+
+.cart-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.cart-details {
+    flex: 1;
+}
+
+.cart-details h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+.cart-details p {
+    font-size: 16px;
+    color: #666;
+    margin: 5px 0;
+}
+
+.cart-controls {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.cart-controls button {
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 16px;
+    width: 30px; 
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.cart-controls button:hover {
+    background: #ff4f4f;
+}
+
+.cart-controls span {
+    font-size: 16px;
+    color: #333;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+    text-align: right;
+}
+
+.checkout-button,
+.clear-cart {
+    margin-top: 20px;
+    padding: 12px 15px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    display: block;
+    width: 250px;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.checkout-button {
+    background: #28a745;
+    color: white;
+}
+
+.clear-cart {
+    background: #ff4f4f;
+    color: white;
+}
+
+.checkout-button:hover {
+    background: #218838;
+}
+
+.clear-cart:hover {
+    background: #d32f2f;
+}

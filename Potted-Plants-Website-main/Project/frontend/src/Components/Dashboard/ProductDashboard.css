@@ -1,0 +1,153 @@
+.admin-dashboard {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.admin-dashboard h1 {
+    color: #2e7d32;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.product-form {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.product-form h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-group textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.submit-btn, .cancel-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.submit-btn {
+    background-color: #4caf50;
+    color: white;
+}
+
+.cancel-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.product-list {
+    margin-top: 30px;
+}
+
+.product-list h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+}
+
+.admin-product-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.edit-btn, .delete-btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.edit-btn {
+    background-color: #2196f3;
+    color: white;
+}
+
+.delete-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+/* Loading and message styles */
+.loading {
+    text-align: center;
+    padding: 10px;
+    color: #2196F3;
+  }
+  
+  .error-message {
+    color: #f44336;
+    background-color: #ffebee;
+    padding: 10px;
+    border-radius: 4px;
+    margin: 10px 0;
+  }
+  
+  .success-message {
+    color: #4CAF50;
+    background-color: #e8f5e9;
+    padding: 10px;
+    border-radius: 4px;
+    margin: 10px 0;
+  }
+  
+  /* Image preview */
+  .image-preview {
+    margin-top: 10px;
+  }
+  
+  .image-preview img {
+    max-width: 100px;
+    max-height: 100px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }

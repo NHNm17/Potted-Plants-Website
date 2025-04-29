@@ -1,0 +1,184 @@
+.product-detail-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    display: flex;
+    gap: 40px;
+}
+
+.product-detail-image {
+    flex: 1;
+}
+
+.product-detail-image img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.product-detail-info {
+    flex: 1;
+}
+
+.product-detail-info h1 {
+    color: #2e7d32;
+    margin-bottom: 20px;
+}
+
+.product-detail-info .price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.product-detail-info .description {
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.product-actions {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.product-actions button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.product-actions .add-cart {
+    background-color: #4caf50;
+    color: white;
+}
+
+.product-actions .add-cart:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.product-actions .buy-now {
+    background-color: #ff9800;
+    color: white;
+}
+
+.product-actions .buy-now:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.feedback-link {
+    display: inline-block;
+    color: #2196f3;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.feedback-link:hover {
+    text-decoration: underline;
+}
+
+.in-stock {
+    color: #2e7d32;
+    font-weight: bold;
+}
+
+.out-of-stock {
+    color: #c62828;
+    font-weight: bold;
+}
+/* Add to ProductDetail.css */
+.loading {
+    text-align: center;
+    padding: 40px;
+    color: #2e7d32;
+    font-size: 18px;
+}
+
+.error {
+    text-align: center;
+    padding: 40px;
+    color: #c62828;
+    font-size: 18px;
+}
+/* Add these styles to your existing ProductDetail.css */
+
+.add-note {
+    background-color: #2196f3;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 5px;
+}
+
+.add-note:hover {
+    background-color: #0b7dda;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.note-modal {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    max-width: 90%;
+}
+
+.note-modal h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.note-modal textarea {
+    width: 100%;
+    height: 100px;
+    margin: 10px 0;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.modal-buttons button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.modal-buttons button:first-child {
+    background-color: #4caf50;
+    color: white;
+}
+
+.modal-buttons button:last-child {
+    background-color: #f44336;
+    color: white;
+}

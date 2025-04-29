@@ -1,0 +1,42 @@
+/* Footer Section */
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 15px;
+  margin-top: 30px;
+  text-align: center; /* Centers text */
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+}
+
+/* Footer Links */
+.footer ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Centers the list horizontally */
+  gap: 20px; /* Adds spacing between links */
+}
+
+.footer a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  display: inline-block;
+}
+
+/* Social Links */
+.social-links {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center; /* Centers social icons */
+  align-items: center;
+}
+
+.social-links img {
+  width: 30px;
+  height: 30px;
+  margin: 0 10px;
+}
