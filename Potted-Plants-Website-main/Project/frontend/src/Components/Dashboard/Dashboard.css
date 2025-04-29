@@ -1,173 +1,123 @@
-/* Dashboard Container */
-.dashboard-container {
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 20px;
-    background: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-  
-  /* Dashboard Heading */
-  .dashboard-container h1 {
-    color: #333;
-    font-size: 26px;
-    margin-bottom: 10px;
-  }
-  
-  .dashboard-container p {
-    font-size: 16px;
-    color: #666;
-  }
-  
-  /* User Table */
-  .users-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background: #f9f9f9;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  
-  .users-table thead {
-    background-color: grey;
-    color: white;
-  }
-  
-  .users-table th, .users-table td {
-    padding: 12px;
-    border-bottom: 1px solid #ddd;
-    text-align: center;
-  }
-  
-  .users-table tbody tr:hover {
-    background-color: #f1f1f1;
-  }
-  
-  /* Delete Button */
-  .delete-btn {
-    background-color: red;
-    color: white;
-    border: none;
-    padding: 6px 12px;
-    cursor: pointer;
-    transition: background 0.3s ease-in-out;
-  }
-  
-  .delete-btn:hover {
-    background-color: darkred;
-  }
-  
+/* Unified Header Container */
+.nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 15px 30px;
+  background-color: #333;
+  border-bottom: 1px solid #333;
+  font-family: 'Segoe UI', sans-serif;
+}
 
-  
-  /* Graph */
-  .recharts-responsive-container {
-    margin: 20px auto;
-    background: #f8f9fa;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* User Table */
-  .users-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background: #f9f9f9;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  
-  .users-table thead {
-    background-color: grey;
-    color: white;
-  }
-  
-  .users-table th, .users-table td {
-    padding: 12px;
-    border-bottom: 1px solid #ddd;
-    text-align: center;
-  }
-  
-  .users-table tbody tr:hover {
-    background-color: #f1f1f1;
-  }
-  
-  /* Buttons */
 
-  /* Cart Button */
-  .cart-button {
-    background-color: white;
-    border: none;
-    color: black;
-    padding: 8px 16px;
-    font-size: 12px;
-    border-radius: 25px;
-    cursor: pointer;
-    position: relative;
-    transition: background-color 0.3s ease;
-    display: inline-flex;        /* ADD this */
-    align-items: center;         /* Center vertically */
-    justify-content: center;     /* Center horizontally */
-    width: auto;                 /* Remove full stretch */
-    min-width: 100px;             /* Optional: give a decent minimum width */
-    height: 40px;                /* Optional: control height */
-  }
-  
-  .cart-button:hover {
-    background-color: white;
-  }
-  
-  /* Cart Count Badge */
-  .cart-count {
-    color: black;
-    padding: 3px 6px;
-    font-size: 12px;
-    border-radius: 50%;
-    position: absolute;
-    top: -5px;   /* Adjust closer */
-    right: -5px; /* Adjust closer */
-  }
-  
- 
+/* Logo */
+.logo {
+  height: 50px;
+  margin-right: 20px;
+}
 
-  .logout-btn {
-    background-color: red;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 20px;
-    transition: background 0.3s ease-in-out;
-    align-items:flex-end;
-  }
-  
-  .download-btn:hover {
-    background-color: green;
-  }
-  
-  .logout-btn:hover {
-    background-color: red;
-  }
 
-/* Styling for the download button */
-.download-btn {
-  background-color: #28a745; /* Green color */
+/* Navigation Bar */
+.nav-bar {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+.nav-bar li {
+  margin: 0;
+}
+
+
+.nav-bar a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 15px;
+  transition: color 0.3s ease;
+}
+
+
+.nav-bar a:hover {
+  text-decoration: underline;
+  color: #4CAF50;
+}
+
+
+/* User Greeting & Cart */
+.user-cart-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+
+.auth-text {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
   color: white;
-  padding: 8px 12px;
-  font-size: 14px;
+}
+
+
+/* Cart Button */
+.cart-button {
+  background-color: #4CAF50;
   border: none;
-  border-radius: 5px;
+  color: white;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 20px;
   cursor: pointer;
-  transition: background 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
-.download-btn:hover {
-  background-color: #218838; /* Darker green on hover */
+
+.cart-button:hover {
+  background-color: #45a049;
 }
 
-  
+
+.cart-count {
+  background-color: white;
+  color: #4CAF50;
+  padding: 2px 8px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%;
+  position: absolute;
+  top: -8px;
+  right: -8px;
+}
+
+
+/* Logout Button */
+.logout-btn {
+  background-color: red;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+
+.logout-btn:hover {
+  background-color: darkred;
+}
+
+
+

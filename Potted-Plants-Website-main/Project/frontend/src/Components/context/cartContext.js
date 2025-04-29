@@ -1,9 +1,12 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
+
 
 const CartContext = createContext();
 
+
 export const CartProvider = ({ children }) => {
     const [cartItems, setCartItems] = useState([]);
+
 
     const addToCart = (product) => {
         setCartItems((prevItems) => {
@@ -18,6 +21,7 @@ export const CartProvider = ({ children }) => {
         });
     };
 
+
     const removeFromCart = (productId) => {
         setCartItems((prevItems) =>
             prevItems
@@ -28,15 +32,31 @@ export const CartProvider = ({ children }) => {
         );
     };
 
+
     const clearCart = () => {
         setCartItems([]);
     };
 
+
+    // Compute total cart count
+    const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+
+
+    // Log cart count whenever cartItems changes
+    useEffect(() => {
+        console.log("Cart count:", cartCount);
+    }, [cartItems]);
+
+
     return (
-        <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, clearCart }}>
+        <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, clearCart, cartCount }}>
             {children}
         </CartContext.Provider>
     );
 };
 
+
 export const useCart = () => useContext(CartContext);
+
+
+
