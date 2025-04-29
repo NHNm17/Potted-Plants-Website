@@ -3,22 +3,31 @@ const Product = require("../Model/Product");
 const mongoose = require('mongoose');
 
 
+
+
 // Validation for userId and productId
 const validateObjectId = (id) => mongoose.Types.ObjectId.isValid(id) && id.length === 24;
 
 
+
+
 exports.addToWishlist = async (req, res) => {
     try {
-        const { userId, productId, quantity = 1 } = req.body;
+        const { userId, productId, quantity = 1, image } = req.body;
 
 
-        // Validate ObjectId format
+        if (!image) {
+            return res.status(400).json({ success: false, message: "Image is required" });
+        }
+
+
+
+
         if (!validateObjectId(userId) || !validateObjectId(productId)) {
             return res.status(400).json({ success: false, message: "Invalid user ID or product ID format" });
         }
 
 
-        // Check if the product exists
         const productExists = await Product.findById(productId);
         if (!productExists) {
             return res.status(404).json({ success: false, message: "Product not found" });
@@ -29,15 +38,16 @@ exports.addToWishlist = async (req, res) => {
 
 
         if (!wishlist) {
-            wishlist = new Wishlist({ userId, products: [{ productId, quantity }] });
+            wishlist = new Wishlist({
+                userId,
+                products: [{ productId, quantity, image }]
+            });
         } else {
             const existingProduct = wishlist.products.find(p => p.productId.toString() === productId);
-
-
             if (existingProduct) {
                 existingProduct.quantity += quantity;
             } else {
-                wishlist.products.push({ productId, quantity });
+                wishlist.products.push({ productId, quantity, image });
             }
         }
 
@@ -51,9 +61,15 @@ exports.addToWishlist = async (req, res) => {
 };
 
 
+
+
+
+
 exports.removeFromWishlist = async (req, res) => {
     try {
         const { userId, productId } = req.body;
+
+
 
 
         if (!validateObjectId(userId) || !validateObjectId(productId)) {
@@ -61,7 +77,11 @@ exports.removeFromWishlist = async (req, res) => {
         }
 
 
+
+
         let wishlist = await Wishlist.findOne({ userId });
+
+
 
 
         if (!wishlist) {
@@ -69,7 +89,11 @@ exports.removeFromWishlist = async (req, res) => {
         }
 
 
+
+
         const productIndex = wishlist.products.findIndex(p => p.productId.toString() === productId);
+
+
 
 
         if (productIndex === -1) {
@@ -77,8 +101,12 @@ exports.removeFromWishlist = async (req, res) => {
         }
 
 
+
+
         wishlist.products.splice(productIndex, 1);
         await wishlist.save();
+
+
 
 
         res.status(200).json({ success: true, message: "Product removed from wishlist", wishlist });
@@ -91,9 +119,13 @@ exports.removeFromWishlist = async (req, res) => {
 
 
 
+
+
+
+
 exports.updateWishlistQuantity = async (req, res) => {
     try {
-        const { userId, productId, quantity } = req.body;
+        const { userId, productId, quantity, image } = req.body;
 
 
         if (!validateObjectId(userId) || !validateObjectId(productId)) {
@@ -110,7 +142,10 @@ exports.updateWishlistQuantity = async (req, res) => {
 
 
         if (!wishlist) {
-            wishlist = new Wishlist({ userId, products: [{ productId, quantity: 1 }] });
+            wishlist = new Wishlist({
+                userId,
+                products: [{ productId, quantity: 1, image }]
+            });
             await wishlist.save();
             return res.status(200).json({ success: true, message: "Product added to wishlist", wishlist });
         }
@@ -120,7 +155,7 @@ exports.updateWishlistQuantity = async (req, res) => {
 
 
         if (!product) {
-            wishlist.products.push({ productId, quantity: 1 });
+            wishlist.products.push({ productId, quantity: 1, image });
             await wishlist.save();
             return res.status(200).json({ success: true, message: "Product added to wishlist", wishlist });
         }
@@ -140,9 +175,15 @@ exports.updateWishlistQuantity = async (req, res) => {
 
 
 
+
+
+
+
 exports.getWishlist = async (req, res) => {
     try {
         const { userId } = req.params;
+
+
 
 
         // Validate ObjectId format
@@ -151,12 +192,18 @@ exports.getWishlist = async (req, res) => {
         }
 
 
+
+
         const wishlist = await Wishlist.findOne({ userId }).populate("products.productId");
+
+
 
 
         if (!wishlist) {
             return res.status(404).json({ success: false, message: "Wishlist not found" });
         }
+
+
 
 
         res.status(200).json({ success: true, wishlist });
@@ -165,3 +212,4 @@ exports.getWishlist = async (req, res) => {
         res.status(500).json({ success: false, message: "Server Error", error: error.message });
     }
 };
+

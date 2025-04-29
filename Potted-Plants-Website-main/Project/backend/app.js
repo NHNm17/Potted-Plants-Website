@@ -1,9 +1,12 @@
 //pass - HjR43js3YttMAODU
 
+
 const express = require("express");
 const cors = require('cors');
 const dotenv = require('dotenv');
 const mongoose = require("mongoose");
+
+
 
 
 const orderRoute = require("./Route/OrderRoutes");
@@ -14,9 +17,13 @@ const productRoutes = require('./Route/products');
 const feedbackRoutes = require('./Route/feedback');
 const noteRoutes = require('./Route/notes');
 const router = require("./Route/deliveryRoute");
+const wishlist = require('./Route/Wishlist');
+
 
 dotenv.config();
 const app = express();
+
+
 
 
 //Middleware
@@ -30,7 +37,9 @@ app.use('/products', productRoutes);
 app.use('/feedback', feedbackRoutes);
 app.use('/api/notes', noteRoutes);
 app.use('/Delivery', router);
-app.use('/Wishlist', router);
+app.use('/wishlist', wishlist);
+
+
 
 
 mongoose.connect("mongodb+srv://admin:HjR43js3YttMAODU@cluster0.afkqg.mongodb.net/PottedPlantsSL")
@@ -40,3 +49,4 @@ mongoose.connect("mongodb+srv://admin:HjR43js3YttMAODU@cluster0.afkqg.mongodb.ne
     console.log("Server is running on port 5000")
 })
 .catch((err)=> console.log((err)));
+

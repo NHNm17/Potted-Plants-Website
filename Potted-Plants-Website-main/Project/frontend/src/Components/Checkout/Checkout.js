@@ -4,11 +4,13 @@ import './Checkout.css';
 import CustomerDashboard from '../Dashboard/CustomerDashboard';
 
 
+
+
 export default function Checkout() {
   const navigate = useNavigate();
-  const { state } = useLocation();
-  const [items] = useState(state?.items || []);
-  const [paymentMethod, setPaymentMethod] = useState('card');
+  const savedData = JSON.parse(localStorage.getItem('checkoutData')) || {};
+  const [items] = useState(savedData.items || []);
+  const [paymentMethod, setPaymentMethod] = useState(savedData.paymentMethod || 'card');
   const [cardDetails, setCardDetails] = useState({
     cardNumber: '',
     nameOnCard: '',
@@ -22,9 +24,12 @@ export default function Checkout() {
     email: ''
   });
   const [errors, setErrors] = useState({});
+ 
+
 
   const subtotal = items.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
   const total = subtotal;
+
 
   const validateForm = () => {
     const newErrors = {};
@@ -50,9 +55,11 @@ export default function Checkout() {
     return Object.keys(newErrors).length === 0;
   };
 
+
   const handleCardPayment = (e) => {
     e.preventDefault();
     if (!validateForm()) return;
+    localStorage.removeItem('checkoutData');
     navigate('/success', {
       state: {
         orderId: `PP${Date.now()}${Math.floor(Math.random() * 1000)}`,
@@ -62,6 +69,7 @@ export default function Checkout() {
       }
     });
   };
+
 
   const handleCODPayment = (e) => {
     e.preventDefault();
@@ -77,12 +85,14 @@ export default function Checkout() {
     });
   };
 
+
   return (
     <div>
       <CustomerDashboard/>
     <div className="checkout-page">
       <div className="checkout-container">
         <h1>Checkout</h1>
+
 
         <div className="payment-method-selection">
           <button
@@ -92,6 +102,7 @@ export default function Checkout() {
             Pay with Card
           </button>
 
+
           <button
             className={`payment-btn ${paymentMethod === 'cod' ? 'selected' : ''}`}
             onClick={() => setPaymentMethod('cod')}
@@ -99,6 +110,7 @@ export default function Checkout() {
             Cash on Delivery
           </button>
         </div>
+
 
         {paymentMethod === 'card' ? (
           <div className="checkout-form">
@@ -113,6 +125,7 @@ export default function Checkout() {
             />
             {errors.cardNumber && <p className="error">{errors.cardNumber}</p>}
 
+
             <label>Name on Card</label>
             <input
               type="text"
@@ -121,6 +134,7 @@ export default function Checkout() {
               placeholder="John Doe"
             />
             {errors.nameOnCard && <p className="error">{errors.nameOnCard}</p>}
+
 
             <div className="card-row">
               <div>
@@ -153,6 +167,7 @@ export default function Checkout() {
               </div>
             </div>
 
+
             <button className="pay-now-btn" onClick={handleCardPayment}>
               Pay Now
             </button>
@@ -169,6 +184,7 @@ export default function Checkout() {
             />
             {errors.fullName && <p className="error">{errors.fullName}</p>}
 
+
             <label>Phone Number</label>
             <input
               type="tel"
@@ -179,6 +195,7 @@ export default function Checkout() {
             />
             {errors.phone && <p className="error">{errors.phone}</p>}
 
+
             <label>Email Address</label>
             <input
               type="email"
@@ -188,12 +205,14 @@ export default function Checkout() {
             />
             {errors.email && <p className="error">{errors.email}</p>}
 
+
             <button className="pay-now-btn" onClick={handleCODPayment}>
             Proceed
             </button>
           </div>
         )}
       </div>
+
 
       <div className="order-summary-container">
         <div className="order-summary">
@@ -216,3 +235,4 @@ export default function Checkout() {
     </div>
   );
 }
+

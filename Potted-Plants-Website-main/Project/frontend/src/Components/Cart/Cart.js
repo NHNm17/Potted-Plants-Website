@@ -12,8 +12,14 @@ export default function Cart() {
     const totalPrice = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
     const handleCheckout = () => {
-        navigate('/adddelivery', { state: { items: cartItems, paymentMethod: 'card' } });
+        const checkoutData = {
+            items: cartItems,
+            paymentMethod: 'card'
+        };
+        localStorage.setItem('checkoutData', JSON.stringify(checkoutData));
+        navigate('/adddelivery');
     };
+
 
     return (
         <div>

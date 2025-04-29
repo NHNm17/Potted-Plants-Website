@@ -7,14 +7,18 @@ import { useCart } from "../context/cartContext";
 import { toast } from "react-toastify";
 import { FaHeart } from "react-icons/fa"; // ❤️ Import heart icon
 
+
 const initialProducts = [];
+
 
 const ProductPage = () => {
   const [products, setProducts] = useState(initialProducts);
   const navigate = useNavigate();
   const { addToCart } = useCart();
 
+
   const userId = "660c5b8f0d3f2b001f3d3e4a"; // Replace with dynamic userId later
+
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -28,6 +32,7 @@ const ProductPage = () => {
     fetchProducts();
   }, []);
 
+
   const viewProductDetails = (productId) => {
     navigate(`/product/${productId}`);
   };
@@ -35,21 +40,33 @@ const ProductPage = () => {
     navigate('/adddelivery', {});
 };
 
-  const addToWishlist = async (productId) => {
+
+
+
+  const addToWishlist = async (product) => {
     try {
-      const response = await axios.post("http://localhost:5000/api/wishlist/add", {
+      const payload = {
         userId,
-        productId,
+        productId: product._id,
         quantity: 1,
-      });
-  
+        image: product.image
+      };
+
+
+      console.log("Sending wishlist payload:", payload); // 🐛 Debug log
+
+
+      const response = await axios.post("http://localhost:5000/wishlist/add", payload);
+
+
       if (response.data.success) {
         toast.success("Added to wishlist ❤️", {
           position: "top-right",
           autoClose: 1500,
           theme: "colored",
         });
-  
+
+
         setTimeout(() => {
           navigate("/wishlist");
         }, 1500); // Wait for the toast to show before navigating
@@ -69,7 +86,10 @@ const ProductPage = () => {
       });
     }
   };
-  
+
+
+ 
+
 
   return (
     <div>
@@ -86,14 +106,16 @@ const ProductPage = () => {
                 style={{ cursor: "pointer" }}
               />
 
+
               {/* ❤️ Heart Icon */}
               <button
                 className="wishlist-icon"
-                onClick={() => addToWishlist(product._id)}
+                onClick={() => addToWishlist(product)}
                 title="Add to Wishlist"
               >
                 <FaHeart color="crimson" />
               </button>
+
 
               <h3>{product.name}</h3>
               <p>{product.description}</p>
@@ -101,6 +123,7 @@ const ProductPage = () => {
               <p className={product.stock === 0 ? "out-of-stock" : "in-stock"}>
                 {product.stock > 0 ? `Stock: ${product.stock}` : "Out of Stock"}
               </p>
+
 
               <button
                 onClick={() => {
@@ -122,9 +145,11 @@ const ProductPage = () => {
                 {product.stock > 0 ? "Add to Cart" : "Sold Out"}
               </button>
 
+
               <button className="buy-now" disabled={product.stock === 0} onClick={handleCheckout}>
                 {product.stock > 0 ? "Buy Now" : "Sold Out"}
               </button>
+
 
               <a
                 href={`/feedback?product=${encodeURIComponent(product.name)}`}
@@ -140,4 +165,8 @@ const ProductPage = () => {
   );
 };
 
+
 export default ProductPage;
+
+
+

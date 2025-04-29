@@ -1,4 +1,5 @@
 
+
 import {Route, Routes} from "react-router";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
@@ -34,12 +35,21 @@ import Footer from "./Components/Footer/Footer";
 import Wishlist from './Components/Wishlist/Wishlist';
 import React, { useState } from 'react';
 import AIchatbot from "./Components/AIchatbot/AIchatbot";
+import useCart from './Components/Cart/useCart';
+
+
 
 
 import "./App.css";
 
+
 function App() {
   const [wishlist, setWishlist] = useState([]);
+
+
+  const { cartItems, addToCart, removeFromCart, clearCart } = useCart();
+
+
 
 
   const toggleWishlist = (plant) => {
@@ -51,16 +61,19 @@ function App() {
   };
 
 
+
+
   const removeFromWishlist = (id) => {
     setWishlist(prevWishlist => prevWishlist.filter(item => item.id !== id));
   };
-  
+ 
   return (
     <div>
       <AuthProvider>
         <CartProvider>
       <React.Fragment>
         <Routes>
+
 
           <Route path="/" element={<Home/>}/>
           <Route path="/dashboard" element={<DashboardHome/>}/>
@@ -75,10 +88,10 @@ function App() {
           <Route path="/customer-dashboard" element={<PrivateRoute><CustomerDashboard/></PrivateRoute>}/>
           <Route path="/admin-dashboard" element={<AdminRoute><AdminDashboard /></AdminRoute>} />
           <Route path="/product-dashboard" element={<AdminRoute><ProductDashboard /></AdminRoute>} />
-          <Route path="/product-page" element={<ProductPage/>}/>
+          <Route path="/product-page" element={<ProductPage addToCart={addToCart} toggleWishlist={toggleWishlist} />}/>
           <Route path="/productdetail" element={<ProductDetail/>}/>
           <Route path="/product/:id" element={<ProductDetail />} />
-          <Route path="/cart" element={<Cart/>} />
+          <Route path="/cart" element={<Cart cartItems={cartItems} addToCart={addToCart} removeFromCart={removeFromCart} clearCart={clearCart} />} />
           <Route path="/feedback" element={<Feedback/>}/>
           <Route path="/checkout" element={<Checkout/>}/>
           <Route path="/success" element={<Success/>}/>
@@ -87,12 +100,13 @@ function App() {
           <Route path="/UpdateDelivery/:id" element={<UpdateDelivery/>}/>
           <Route path="/deliverytracking" element={<DeliveryTracking/>}/>
           <Route path="/ordersucess" element={<OrderSucess/>}/>
-          <Route
-          path="/wishlist"
-          element={<Wishlist wishlistItems={wishlist} removeFromWishlist={removeFromWishlist} />}/>
+              <Route
+                path="/wishlist"
+                element={<Wishlist wishlistItems={wishlist} removeFromWishlist={removeFromWishlist} />}
+              />
           <Route path="/aichatbot" element={<AIchatbot/>}/>
-          
-          
+         
+         
         </Routes>
         <ToastContainer />
       </React.Fragment>
@@ -103,4 +117,10 @@ function App() {
   );
 }
 
+
 export default App;
+
+
+
+
+

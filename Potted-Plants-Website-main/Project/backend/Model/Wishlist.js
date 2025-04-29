@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 
 
+
+
 const WishlistSchema = new mongoose.Schema({
     userId: {
         type: mongoose.Schema.Types.ObjectId,
@@ -16,9 +18,16 @@ const WishlistSchema = new mongoose.Schema({
             type: Number,
             default: 1,
             min: 1
-        }
+        },
+        image: {
+            type: String,
+            required: false
+        },
     }]
 }, { timestamps: true });
 
 
+
+
 module.exports = mongoose.model("Wishlist", WishlistSchema);
+
