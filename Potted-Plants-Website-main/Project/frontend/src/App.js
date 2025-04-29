@@ -36,6 +36,7 @@ import Wishlist from './Components/Wishlist/Wishlist';
 import React, { useState } from 'react';
 import AIchatbot from "./Components/AIchatbot/AIchatbot";
 import useCart from './Components/Cart/useCart';
+import OrderHistory from "./Components/account/OrderHistory";
 
 
 
@@ -100,6 +101,7 @@ function App() {
           <Route path="/UpdateDelivery/:id" element={<UpdateDelivery/>}/>
           <Route path="/deliverytracking" element={<DeliveryTracking/>}/>
           <Route path="/ordersucess" element={<OrderSucess/>}/>
+          <Route path="/orderhistory" element={<OrderHistory />} />
               <Route
                 path="/wishlist"
                 element={<Wishlist wishlistItems={wishlist} removeFromWishlist={removeFromWishlist} />}

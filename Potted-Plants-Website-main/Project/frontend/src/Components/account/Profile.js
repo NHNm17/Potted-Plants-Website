@@ -14,7 +14,7 @@ function Profile() {
         <h2>My Account</h2>
         <ul>
           <li><Link to="/profile" className="active">Profile</Link></li>
-          <li><Link to="/orders">My Orders</Link></li>
+          <li><Link to="/orderhistory">My Orders</Link></li>
           <li><Link to="/DeliveryInfo">Delivery Options</Link></li>
           <li><Link to="/loyalty">Loyalty Points</Link></li>
         </ul>

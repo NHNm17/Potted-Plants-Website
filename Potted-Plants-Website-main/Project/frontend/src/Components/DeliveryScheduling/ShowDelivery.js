@@ -66,9 +66,9 @@ function DeliveryBook() {
       <aside className="sidebar">
         <h2>My Account</h2>
         <ul>
-          <li><Link to="/profile" className="active">Profile</Link></li>
-          <li><Link to="/orders">My Orders</Link></li>
-          <li><Link to="/DeliveryInfo">Delivery Options</Link></li>
+          <li><Link to="/profile">Profile</Link></li>
+          <li><Link to="/orderhistory">My Orders</Link></li>
+          <li><Link to="/DeliveryInfo" className="active">Delivery Options</Link></li>
           <li><Link to="/loyalty">Loyalty Points</Link></li>
         </ul>
         <button className="back-btn" onClick={() => navigate("/customer-dashboard")}>
@@ -76,6 +76,7 @@ function DeliveryBook() {
         </button>
         <button className="logout-btn" onClick={logout}>Logout</button>
       </aside>
+      <main className="profile-content">  
     <div className="delivery-book" style={{
       maxWidth: "1200px",
       margin: "2rem auto",
@@ -95,23 +96,6 @@ function DeliveryBook() {
           margin: 0,
           fontSize: "1.8rem"
         }}>Delivery Records</h2>
-        <div>
-          <button 
-            onClick={() => navigate(-1)}
-            style={{
-              padding: "0.75rem 1.5rem",
-              backgroundColor: "#f1f1f1",
-              color: "#333",
-              border: "none",
-              borderRadius: "4px",
-              cursor: "pointer",
-              fontSize: "1rem",
-              transition: "background-color 0.3s"
-            }}
-          >
-            Back
-          </button>
-        </div>
       </div>
 
       {/* Delivery Type Tabs */}
@@ -292,6 +276,7 @@ function DeliveryBook() {
         )}
       </div>
     </div>
+    </main>
     </div>
   );
 }
