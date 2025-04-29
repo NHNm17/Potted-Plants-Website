@@ -18,6 +18,8 @@ const feedbackRoutes = require('./Route/feedback');
 const noteRoutes = require('./Route/notes');
 const router = require("./Route/deliveryRoute");
 const wishlist = require('./Route/Wishlist');
+const orderRoutes = require("./Route/OrderRoutes");
+
 
 
 dotenv.config();
@@ -38,6 +40,7 @@ app.use('/feedback', feedbackRoutes);
 app.use('/api/notes', noteRoutes);
 app.use('/Delivery', router);
 app.use('/wishlist', wishlist);
+app.use('/orders', orderRoutes);
 
 
 
