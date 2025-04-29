@@ -12,7 +12,7 @@ const AdminRoute = ({ children }) => {
   }
 
   if (user?.role !== "UserAdmin" && user?.role !== "ProductAdmin") {
-    return <Navigate to="/customer-dashboard" replace />; // Redirect non-admins
+    return <Navigate to="/dashboard" replace />; // Redirect non-admins
   
   }
 

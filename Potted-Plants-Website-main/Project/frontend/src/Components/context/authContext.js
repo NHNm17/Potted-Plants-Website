@@ -55,7 +55,7 @@
                 ? "/admin-dashboard"
                 : role === "ProductAdmin"
                 ? "/product-dashboard"
-                : "/customer-dashboard"
+                : "/dashboard"
             );
         }, 1500);
         } catch (err) {
@@ -88,7 +88,7 @@
             } else if (role === "ProductAdmin") {
             navigate("/product-dashboard");
             } else {
-            navigate("/customer-dashboard");
+            navigate("/dashboard");
             }
         }, 500);
         } catch (err) {
