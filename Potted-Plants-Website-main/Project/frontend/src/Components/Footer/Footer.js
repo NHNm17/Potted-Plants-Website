@@ -7,7 +7,7 @@ function Footer() {
             {/* Footer Section */}
       <footer className="footer">
         <ul>
-          <a href="aboutus">About Us</a>
+          <a href="/aboutus">About Us</a>
           <a href="contactus">Contact</a>
           <a href="privacypolicy">Privacy Policy</a>
           <a href="termsandcondition">Terms and Conditions</a>
