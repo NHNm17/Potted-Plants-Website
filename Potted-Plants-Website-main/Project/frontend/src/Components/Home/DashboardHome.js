@@ -1,14 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
 import "./home.css"
-import { useAuth } from '../context/authContext'
 import CustomerDashboard from '../Dashboard/CustomerDashboard';
 
 
 
 
 function Home() {
-    const {user, logout} = useAuth;
   return (
     <div>
         <CustomerDashboard/>

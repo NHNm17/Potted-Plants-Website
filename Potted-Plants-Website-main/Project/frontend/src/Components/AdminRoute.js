@@ -11,7 +11,7 @@ const AdminRoute = ({ children }) => {
     return <Navigate to="/login" replace />; // Redirect if not logged in
   }
 
-  if (user?.role !== "UserAdmin" && user?.role !== "ProductAdmin") {
+  if (user?.role !== "UserAdmin" && user?.role !== "ProductAdmin" &&user?.role !== "DeliveryAdmin") {
     return <Navigate to="/dashboard" replace />; // Redirect non-admins
   
   }

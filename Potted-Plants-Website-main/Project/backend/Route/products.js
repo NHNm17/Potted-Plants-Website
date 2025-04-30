@@ -100,5 +100,33 @@ router.delete('/:id', async (req, res) => {
     handleErrors(res, error);
   }
 });
+router.get('/track/:orderId', async (req, res) => {
+  try {
+    const { orderId } = req.params;
+    
+    const order = await Order.findOne({ orderId });
+
+    if (!order) {
+      return res.status(404).json({ message: 'Order not found' });
+    }
+
+    // Assume you have delivery details stored with the order
+    res.json({
+      status: order.status || "Pending",
+      estimatedDate: order.estimatedDate || "Not available",
+      deliveryID: order.deliveryID || "Not assigned",
+      DeliveryPartner: order.DeliveryPartner || "Not assigned",
+      DeliveryVehicle: order.DeliveryVehicle || "Not assigned",
+      customerDetails: order.customerDetails,
+      items: order.items,
+      amount: order.amount,
+      paymentMethod: order.paymentMethod,
+      createdAt: order.createdAt
+    });
+  } catch (error) {
+    console.error("Tracking error:", error);
+    res.status(500).json({ message: 'Something went wrong' });
+  }
+});
 
 module.exports = router;

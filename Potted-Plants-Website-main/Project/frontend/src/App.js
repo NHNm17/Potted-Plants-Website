@@ -37,6 +37,8 @@ import React, { useState } from 'react';
 import AIchatbot from "./Components/AIchatbot/AIchatbot";
 import useCart from './Components/Cart/useCart';
 import OrderHistory from "./Components/account/OrderHistory";
+import DeliveryDashboard from "./Components/Dashboard/DeliveryDashboard";
+
 
 
 
@@ -89,6 +91,7 @@ function App() {
           <Route path="/customer-dashboard" element={<PrivateRoute><CustomerDashboard/></PrivateRoute>}/>
           <Route path="/admin-dashboard" element={<AdminRoute><AdminDashboard /></AdminRoute>} />
           <Route path="/product-dashboard" element={<AdminRoute><ProductDashboard /></AdminRoute>} />
+          <Route path="/delivery-dashboard"element={<AdminRoute><DeliveryDashboard /></AdminRoute>} />
           <Route path="/product-page" element={<ProductPage addToCart={addToCart} toggleWishlist={toggleWishlist} />}/>
           <Route path="/productdetail" element={<ProductDetail/>}/>
           <Route path="/product/:id" element={<ProductDetail />} />
