@@ -1,53 +1,123 @@
-/* Header Section */
-.header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px;
-    font-size: 18px;
-    text-align: center;
-  }
-  
-  /* Top Bar */
-  .top-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 30px;
-  }
-  
-  .logo {
-    height: 60px;
-  }
-  
-  .auth-links {
-    margin-left: auto;
-  }
-  
-  .auth-links a {
-    color: blue;
-    text-decoration: none;
-    margin: 0 5px;
-  }
-  
-  .cart-icon img {
-    height: 30px;
-    width: 30px;
-    margin-left: 20px;
-  }
-  
-  /* Navigation Bar */
-  .nav-bar {
-    background-color: #333;
-    padding: 5px;
-    display: flex;  
-    justify-content: center; 
-    align-items: center; 
-  }
-  .nav-bar a {
-    display: block;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    padding: 10px;
-    margin: 5px;
-  }
+/* Unified Header Container */
+.nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 15px 30px;
+  background-color: #333;
+  border-bottom: 1px solid #333;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+
+/* Logo */
+.logo {
+  height: 50px;
+  margin-right: 20px;
+}
+
+
+/* Navigation Bar */
+.nav-bar {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+.nav-bar li {
+  margin: 0;
+}
+
+
+.nav-bar a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 15px;
+  transition: color 0.3s ease;
+}
+
+
+.nav-bar a:hover {
+  text-decoration: underline;
+  color: #4CAF50;
+}
+
+
+/* User Greeting & Cart */
+.user-cart-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+
+.auth-text {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+  color: white;
+}
+
+
+/* Cart Button */
+.cart-button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+
+.cart-button:hover {
+  background-color: #45a049;
+}
+
+
+.cart-count {
+  background-color: white;
+  color: #4CAF50;
+  padding: 2px 8px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%;
+  position: absolute;
+  top: -8px;
+  right: -8px;
+}
+
+
+/* Logout Button */
+.logout-btn {
+  background-color: red;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+
+.logout-btn:hover {
+  background-color: darkred;
+}
+
+
+
