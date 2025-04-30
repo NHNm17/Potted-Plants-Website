@@ -51,7 +51,7 @@ function DeliveryBook() {
           <li><Link to="/orderhistory">My Orders</Link></li>
           <li><Link to="/DeliveryInfo" className="active">Delivery Options</Link></li>
         </ul>
-        <button className="back-btn" onClick={() => navigate("/customer-dashboard")}>&larr; Back to Dashboard</button>
+        <button className="back-btn" onClick={() => navigate("/product-page")}>&larr; Back to Dashboard</button>
         <button className="logout-btn" onClick={logout}>Logout</button>
       </aside>
 
