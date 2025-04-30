@@ -1,7 +1,7 @@
 import React from 'react'
 import "./home.css"
 import { useAuth } from '../context/authContext'
-import CustomerDashboard from '../Dashboard/CustomerDashboard;
+import CustomerDashboard from '../Dashboard/CustomerDashboard';
 
 
 function Home() {

@@ -1,613 +1,248 @@
-import React, { useState } from 'react';
-import { useNavigate } from "react-router";
-import axios from "axios";
-import CustomerDashboard from '../Dashboard/CustomerDashboard';
+import React, { useState } from "react";
+import "./AddDelivery.css";
+import CustomerDashboard from "../Dashboard/CustomerDashboard";
 
-
-function AddDelivery() {
-  const history = useNavigate();
-  const [orderType, setOrderType] = useState('self'); // 'self' or 'gift'
+const AddDelivery = () => {
+  const [orderType, setOrderType] = useState("self");
   const [inputs, setInputs] = useState({
-    // Common fields
     firstName: "",
     lastName: "",
     phone: "",
-    address: "",
     email: "",
-    billingName: "",
-    billingAddress: "",
-    billingCity: "",
-    billingPostcode: "",
-    // Gift-specific fields
-    recipitionFirstName: "",
-    recipitionLastName: "",
-    recipitionPhone: "",
-    recipitionAddress: "",
-    recipitionEmail: "",
-    giftMessage: "",
-    deliveryDate: ""
+    address: "",
+    recipientFirstName: "",
+    recipientLastName: "",
+    recipientPhone: "",
+    recipientAddress: "",
+    recipientEmail: "",
+    deliveryDate: "",
+    message: "",
+    amount: "",
   });
 
   const handleChange = (e) => {
-    setInputs((prevState) => ({
-      ...prevState,
-      [e.target.name]: e.target.value,
-    }));
+    const { name, value } = e.target;
+    setInputs((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    sendRequest().then(() => history('/checkout'));
-  };
+    const payload = {
+      ...inputs,
+      orderType,
+    };
 
-  const sendRequest = async () => {
-    try {
-      const deliveryData = {
-        orderType,
-        ...inputs
-      };
-
-      if (orderType !== 'gift') {
-        // Remove gift-specific fields if not a gift order
-        const { recipitionFirstName, recipitionLastName, recipitionPhone, 
-                recipitionAddress, recipitionEmail, giftMessage, deliveryDate, ...rest } = deliveryData;
-        return await axios.post("http://localhost:5000/Delivery", rest);
-      }
-      
-      return await axios.post("http://localhost:5000/Delivery", deliveryData);
-    } catch (error) {
-      console.error("Error:", error.response?.data || error.message);
-      throw error;
-    }
+    fetch("http://localhost:5000/api/delivery/add-delivery", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        alert("Delivery added successfully!");
+        console.log(data);
+      })
+      .catch((error) => {
+        alert("Failed to add delivery.");
+        console.error(error);
+      });
   };
 
   return (
     <div>
       <CustomerDashboard/>
-      <div style={{ 
-  maxWidth: "800px", 
-  margin: "2rem auto", 
-  padding: "2rem", 
-  backgroundColor: "#fff", 
-  borderRadius: "8px", 
-  boxShadow: "0 0 20px rgba(0, 0, 0, 0.1)"
-}}>
-  <h2 style={{ 
-    color: "#2c3e50", 
-    textAlign: "center", 
-    marginBottom: "2rem",
-    fontSize: "1.8rem"
-  }}>Delivery Information</h2>
-  
-  {/* Order Type Selection - Radio Buttons */}
-  <div style={{ 
-    margin: "20px 0", 
-    display: "flex", 
-    justifyContent: "center", 
-    gap: "20px",
-    padding: "1rem",
-    backgroundColor: "#f8f9fa",
-    borderRadius: "6px"
-  }}>
-    <label style={{
-      display: "flex",
-      alignItems: "center",
-      gap: "0.5rem",
-      cursor: "pointer"
-    }}>
-      <input
-        type="radio"
-        name="orderType"
-        value="self"
-        checked={orderType === 'self'}
-        onChange={() => setOrderType('self')}
-        style={{
-          accentColor: "#3498db",
-          width: "1rem",
-          height: "1rem"
-        }}
-      />
-      Buy for Myself
-    </label>
-    
-    <label style={{
-      display: "flex",
-      alignItems: "center",
-      gap: "0.5rem",
-      cursor: "pointer"
-    }}>
-      <input
-        type="radio"
-        name="orderType"
-        value="gift"
-        checked={orderType === 'gift'}
-        onChange={() => setOrderType('gift')}
-        style={{
-          accentColor: "#3498db",
-          width: "1rem",
-          height: "1rem"
-        }}
-      />
-      Send as a Gift
-    </label>
-  </div>
-
-  <form onSubmit={handleSubmit} style={{
-    display: "flex",
-    flexDirection: "column",
-    gap: "1.5rem"
-  }}>
-    {/* Common Fields (shown for both types) */}
-    <div style={{
-      padding: "1.5rem",
-      backgroundColor: "#f9f9f9",
-      borderRadius: "6px"
-    }}>
-      <h3 style={{ 
-        color: "#3498db", 
-        marginTop: "0", 
-        marginBottom: "1.5rem", 
-        paddingBottom: "0.5rem",
-        borderBottom: "1px solid #eee"
-      }}>{orderType === 'self' ? 'Your Information' : 'Sender Information'}</h3>
-      
-      <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-        <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-          <label style={{ 
-            color: "#555", 
-            fontWeight: "500",
-            fontSize: "0.9rem"
-          }}>First Name</label>
-          <input 
-            type="text" 
-            name="firstName" 
-            onChange={handleChange} 
-            value={inputs.firstName} 
-            required
-            style={{
-              padding: "0.75rem",
-              border: "1px solid #ddd",
-              borderRadius: "4px",
-              fontSize: "1rem",
-              transition: "border-color 0.3s"
-            }} 
+   
+    <div className="add-delivery-container">
+      <h2>Delivery Information</h2>
+      <div className="radio-group">
+        <label>
+          <input
+            type="radio"
+            name="orderType"
+            value="self"
+            checked={orderType === "self"}
+            onChange={() => setOrderType("self")}
           />
-        </div>
-        
-        <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-          <label style={{ 
-            color: "#555", 
-            fontWeight: "500",
-            fontSize: "0.9rem"
-          }}>Last Name</label>
-          <input 
-            type="text" 
-            name="lastName" 
-            onChange={handleChange} 
-            value={inputs.lastName} 
-            required
-            style={{
-              padding: "0.75rem",
-              border: "1px solid #ddd",
-              borderRadius: "4px",
-              fontSize: "1rem",
-              transition: "border-color 0.3s"
-            }} 
+          Buy for Myself
+        </label>
+        <label>
+          <input
+            type="radio"
+            name="orderType"
+            value="gift"
+            checked={orderType === "gift"}
+            onChange={() => setOrderType("gift")}
           />
-        </div>
-        
-        <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-          <label style={{ 
-            color: "#555", 
-            fontWeight: "500",
-            fontSize: "0.9rem"
-          }}>Phone Number</label>
-          <input 
-            type="text" 
-            name="phone" 
-            onChange={handleChange} 
-            value={inputs.phone} 
-            required
-            style={{
-              padding: "0.75rem",
-              border: "1px solid #ddd",
-              borderRadius: "4px",
-              fontSize: "1rem",
-              transition: "border-color 0.3s"
-            }} 
-          />
-        </div>
-        
-        <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-          <label style={{ 
-            color: "#555", 
-            fontWeight: "500",
-            fontSize: "0.9rem"
-          }}>Address</label>
-          <input 
-            type="text" 
-            name="address" 
-            onChange={handleChange} 
-            value={inputs.address} 
-            required
-            style={{
-              padding: "0.75rem",
-              border: "1px solid #ddd",
-              borderRadius: "4px",
-              fontSize: "1rem",
-              transition: "border-color 0.3s"
-            }} 
-          />
-        </div>
-        
-        <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-          <label style={{ 
-            color: "#555", 
-            fontWeight: "500",
-            fontSize: "0.9rem"
-          }}>Email</label>
-          <input 
-            type="email" 
-            name="email" 
-            onChange={handleChange} 
-            value={inputs.email} 
-            required
-            style={{
-              padding: "0.75rem",
-              border: "1px solid #ddd",
-              borderRadius: "4px",
-              fontSize: "1rem",
-              transition: "border-color 0.3s"
-            }} 
-          />
-        </div>
+          Send as a Gift
+        </label>
       </div>
-    </div>
 
-    {/* Gift-specific Fields (only shown when gift is selected) */}
-    {orderType === 'gift' && (
-      <>
-        <div style={{
-          padding: "1.5rem",
-          backgroundColor: "#f9f9f9",
-          borderRadius: "6px"
-        }}>
-          <h3 style={{ 
-            color: "#3498db", 
-            marginTop: "0", 
-            marginBottom: "1.5rem", 
-            paddingBottom: "0.5rem",
-            borderBottom: "1px solid #eee"
-          }}>Recipient Information</h3>
-          
-          <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-              <label style={{ 
-                color: "#555", 
-                fontWeight: "500",
-                fontSize: "0.9rem"
-              }}>Recipient First Name</label>
-              <input 
-                type="text" 
-                name="recipitionFirstName" 
-                onChange={handleChange} 
-                value={inputs.recipitionFirstName} 
+      <form className="delivery-form" onSubmit={handleSubmit}>
+        <div className="section">
+          <h3>Your Information</h3>
+          <div className="field-group">
+            <div className="field">
+              <label>First Name</label>
+              <input
+                type="text"
+                name="firstName"
+                value={inputs.firstName}
+                onChange={handleChange}
                 required
-                style={{
-                  padding: "0.75rem",
-                  border: "1px solid #ddd",
-                  borderRadius: "4px",
-                  fontSize: "1rem",
-                  transition: "border-color 0.3s"
-                }} 
               />
             </div>
-            
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-              <label style={{ 
-                color: "#555", 
-                fontWeight: "500",
-                fontSize: "0.9rem"
-              }}>Recipient Last Name</label>
-              <input 
-                type="text" 
-                name="recipitionLastName" 
-                onChange={handleChange} 
-                value={inputs.recipitionLastName} 
+            <div className="field">
+              <label>Last Name</label>
+              <input
+                type="text"
+                name="lastName"
+                value={inputs.lastName}
+                onChange={handleChange}
                 required
-                style={{
-                  padding: "0.75rem",
-                  border: "1px solid #ddd",
-                  borderRadius: "4px",
-                  fontSize: "1rem",
-                  transition: "border-color 0.3s"
-                }} 
               />
             </div>
-            
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-              <label style={{ 
-                color: "#555", 
-                fontWeight: "500",
-                fontSize: "0.9rem"
-              }}>Recipient Phone</label>
-              <input 
-                type="text" 
-                name="recipitionPhone" 
-                onChange={handleChange} 
-                value={inputs.recipitionPhone} 
+            <div className="field">
+              <label>Phone</label>
+              <input
+                type="tel"
+                name="phone"
+                value={inputs.phone}
+                onChange={handleChange}
                 required
-                style={{
-                  padding: "0.75rem",
-                  border: "1px solid #ddd",
-                  borderRadius: "4px",
-                  fontSize: "1rem",
-                  transition: "border-color 0.3s"
-                }} 
               />
             </div>
-            
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-              <label style={{ 
-                color: "#555", 
-                fontWeight: "500",
-                fontSize: "0.9rem"
-              }}>Recipient Address</label>
-              <input 
-                type="text" 
-                name="recipitionAddress" 
-                onChange={handleChange} 
-                value={inputs.recipitionAddress} 
+            <div className="field">
+              <label>Email</label>
+              <input
+                type="email"
+                name="email"
+                value={inputs.email}
+                onChange={handleChange}
                 required
-                style={{
-                  padding: "0.75rem",
-                  border: "1px solid #ddd",
-                  borderRadius: "4px",
-                  fontSize: "1rem",
-                  transition: "border-color 0.3s"
-                }} 
               />
             </div>
-            
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-              <label style={{ 
-                color: "#555", 
-                fontWeight: "500",
-                fontSize: "0.9rem"
-              }}>Recipient Email</label>
-              <input 
-                type="email" 
-                name="recipitionEmail" 
-                onChange={handleChange} 
-                value={inputs.recipitionEmail} 
+            <div className="field">
+              <label>Address</label>
+              <input
+                type="text"
+                name="address"
+                value={inputs.address}
+                onChange={handleChange}
                 required
-                style={{
-                  padding: "0.75rem",
-                  border: "1px solid #ddd",
-                  borderRadius: "4px",
-                  fontSize: "1rem",
-                  transition: "border-color 0.3s"
-                }} 
               />
             </div>
           </div>
         </div>
-        
-        <div style={{
-          padding: "1.5rem",
-          backgroundColor: "#f9f9f9",
-          borderRadius: "6px"
-        }}>
-          <h3 style={{ 
-            color: "#3498db", 
-            marginTop: "0", 
-            marginBottom: "1.5rem", 
-            paddingBottom: "0.5rem",
-            borderBottom: "1px solid #eee"
-          }}>Gift Details</h3>
-          
-          <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-              <label style={{ 
-                color: "#555", 
-                fontWeight: "500",
-                fontSize: "0.9rem"
-              }}>Gift Message</label>
-              <textarea 
-                name="giftMessage" 
-                onChange={handleChange} 
-                value={inputs.giftMessage}
-                required
-                style={{
-                  padding: "0.75rem",
-                  border: "1px solid #ddd",
-                  borderRadius: "4px",
-                  fontSize: "1rem",
-                  transition: "border-color 0.3s",
-                  minHeight: "100px",
-                  resize: "vertical"
-                }}
-              />
+
+        {orderType === "gift" && (
+          <>
+            <div className="section">
+              <h3>Recipient's Information</h3>
+              <div className="field-group">
+                <div className="field">
+                  <label>First Name</label>
+                  <input
+                    type="text"
+                    name="recipientFirstName"
+                    value={inputs.recipientFirstName}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className="field">
+                  <label>Last Name</label>
+                  <input
+                    type="text"
+                    name="recipientLastName"
+                    value={inputs.recipientLastName}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className="field">
+                  <label>Phone</label>
+                  <input
+                    type="tel"
+                    name="recipientPhone"
+                    value={inputs.recipientPhone}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className="field">
+                  <label>Email</label>
+                  <input
+                    type="email"
+                    name="recipientEmail"
+                    value={inputs.recipientEmail}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className="field">
+                  <label>Address</label>
+                  <input
+                    type="text"
+                    name="recipientAddress"
+                    value={inputs.recipientAddress}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+              </div>
             </div>
-            
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-              <label style={{ 
-                color: "#555", 
-                fontWeight: "500",
-                fontSize: "0.9rem"
-              }}>Delivery Date</label>
-              <input 
-                type="date" 
-                name="deliveryDate" 
-                onChange={handleChange} 
-                value={inputs.deliveryDate}
-                min={new Date().toISOString().split('T')[0]}
+
+            <div className="section">
+              <h3>Gift Details</h3>
+              <div className="field-group">
+                <div className="field">
+                  <label>Delivery Date</label>
+                  <input
+                    type="date"
+                    name="deliveryDate"
+                    value={inputs.deliveryDate}
+                    min={new Date().toISOString().split("T")[0]}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className="field">
+                  <label>Message</label>
+                  <textarea
+                    name="message"
+                    value={inputs.message}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+          </>
+        )}
+
+        <div className="section">
+          <h3>Billing</h3>
+          <div className="field-group">
+            <div className="field">
+              <label>Amount (RS)</label>
+              <input
+                type="number"
+                name="amount"
+                value={inputs.amount}
+                onChange={handleChange}
                 required
-                style={{
-                  padding: "0.75rem",
-                  border: "1px solid #ddd",
-                  borderRadius: "4px",
-                  fontSize: "1rem",
-                  transition: "border-color 0.3s"
-                }}
               />
             </div>
           </div>
         </div>
-      </>
-    )}
 
-    {/* Billing Information (common to both) */}
-    <div style={{
-      padding: "1.5rem",
-      backgroundColor: "#f9f9f9",
-      borderRadius: "6px"
-    }}>
-      <h3 style={{ 
-        color: "#3498db", 
-        marginTop: "0", 
-        marginBottom: "1.5rem", 
-        paddingBottom: "0.5rem",
-        borderBottom: "1px solid #eee"
-      }}>Billing Information</h3>
-      
-      <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-        <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-          <label style={{ 
-            color: "#555", 
-            fontWeight: "500",
-            fontSize: "0.9rem"
-          }}>Billing Name</label>
-          <input 
-            type="text" 
-            name="billingName" 
-            placeholder="Billing Name" 
-            onChange={handleChange} 
-            value={inputs.billingName} 
-            required
-            style={{
-              padding: "0.75rem",
-              border: "1px solid #ddd",
-              borderRadius: "4px",
-              fontSize: "1rem",
-              transition: "border-color 0.3s"
-            }} 
-          />
-        </div>
-        
-        <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-          <label style={{ 
-            color: "#555", 
-            fontWeight: "500",
-            fontSize: "0.9rem"
-          }}>Billing Address</label>
-          <input 
-            type="text" 
-            name="billingAddress" 
-            placeholder="Billing Address" 
-            onChange={handleChange} 
-            value={inputs.billingAddress} 
-            required
-            style={{
-              padding: "0.75rem",
-              border: "1px solid #ddd",
-              borderRadius: "4px",
-              fontSize: "1rem",
-              transition: "border-color 0.3s"
-            }} 
-          />
-        </div>
-        
-        <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-          <label style={{ 
-            color: "#555", 
-            fontWeight: "500",
-            fontSize: "0.9rem"
-          }}>Billing City</label>
-          <input 
-            type="text" 
-            name="billingCity" 
-            placeholder="Billing City" 
-            onChange={handleChange} 
-            value={inputs.billingCity} 
-            required
-            style={{
-              padding: "0.75rem",
-              border: "1px solid #ddd",
-              borderRadius: "4px",
-              fontSize: "1rem",
-              transition: "border-color 0.3s"
-            }} 
-          />
-        </div>
-        
-        <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-          <label style={{ 
-            color: "#555", 
-            fontWeight: "500",
-            fontSize: "0.9rem"
-          }}>Billing Postcode</label>
-          <input 
-            type="text" 
-            name="billingPostcode" 
-            placeholder="Billing Postcode" 
-            onChange={handleChange} 
-            value={inputs.billingPostcode} 
-            required
-            style={{
-              padding: "0.75rem",
-              border: "1px solid #ddd",
-              borderRadius: "4px",
-              fontSize: "1rem",
-              transition: "border-color 0.3s"
-            }} 
-          />
-        </div>
-      </div>
+        <button type="submit" className="submit-button">
+          Proceed to Checkout
+        </button>
+      </form>
     </div>
-
-    <div style={{ 
-      marginTop: "20px",
-      display: "flex",
-      justifyContent: "flex-end",
-      gap: "1rem"
-    }}>
-      <button 
-        type="button" 
-        onClick={() => history(-1)}
-        style={{
-          padding: "0.75rem 1.5rem",
-          border: "none",
-          borderRadius: "4px",
-          backgroundColor: "#f1f1f1",
-          color: "#333",
-          fontSize: "1rem",
-          cursor: "pointer",
-          transition: "all 0.3s"
-        }}
-      >
-        Back
-      </button>
-      <button 
-        type="submit"
-        style={{
-          padding: "0.75rem 1.5rem",
-          border: "none",
-          borderRadius: "4px",
-          backgroundColor: "#3498db",
-          color: "white",
-          fontSize: "1rem",
-          cursor: "pointer",
-          transition: "all 0.3s"
-        }}
-      >
-        Proceed
-      </button>
-    </div>
-  </form>
-</div>
     </div>
   );
-}
+};
 
 export default AddDelivery;
