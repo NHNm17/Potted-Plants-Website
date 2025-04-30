@@ -1,59 +1,108 @@
-/* Home.css */
+/* Reset and Base Styles */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #e8f5e9, #f1f8e9);
+  color: #2e7d32;
+  line-height: 1.6;
+}
 
+/* Main Container */
 .home-container {
   text-align: center;
-  font-family: Arial, sans-serif;
   background-size: cover;
-  margin: 0;
   padding: 0;
 }
-.h2{
-  text-align: center;
-  align-content: center;
-}
 
+/* Headings */
+h2 {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-size: 2.2rem;
+  color: #1b5e20;
+  letter-spacing: 0.5px;
+}
 
 /* Hero Section */
 .hero-section {
-  padding: 50px;
-  background-color: #e8f5e9;
-  color: #2e7d32;
+  padding: 60px 30px;
+  background-color: #c8e6c9;
+  color: #1b5e20;
+  font-size: 1.5rem;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(27, 94, 32, 0.15);
+  border-radius: 0 0 12px 12px;
 }
 
 /* Featured Products */
 .featured-products {
-  padding: 30px;
+  padding: 50px 30px;
+  background-color: #f1f8e9;
 }
 
 .products {
   display: flex;
   justify-content: center;
-  gap: 20px;
   flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
+/* Product Card */
 .product-card {
-  background-color: #f4f4f4;
-  padding: 20px;
-  width: 250px;
+  background-color: #ffffff;
+  padding: 25px 20px;
+  width: 260px;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(76, 175, 80, 0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(76, 175, 80, 0.2);
 }
 
 .product-card img {
   width: 100%;
+  height: auto;
   border-radius: 10px;
+  margin-bottom: 20px;
 }
 
-.buy-now, .add-cart {
-  background-color: #4CAF50;
-  color: white;
-  padding: 8px 15px;
+/* Buttons */
+.buy-now,
+.add-cart {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
   border: none;
   cursor: pointer;
-  margin: 5px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
+/* Buy Now Button */
+.buy-now {
+  background-color: #388e3c;
+  color: white;
+}
+
+.buy-now:hover {
+  background-color: #2e7d32;
+  transform: scale(1.05);
+}
+
+/* Add to Cart Button */
 .add-cart {
-  background-color: red;
+  background-color: #a5d6a7;
+  color: #1b5e20;
+}
+
+.add-cart:hover {
+  background-color: #81c784;
+  transform: scale(1.05);
 }

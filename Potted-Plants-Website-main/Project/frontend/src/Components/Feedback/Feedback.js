@@ -5,7 +5,6 @@ import { FaStar, FaEdit, FaTrash } from 'react-icons/fa';
 import "./Feedback.css";
 import CustomerDashboard from "../Dashboard/CustomerDashboard";
 
-
 const Feedback = () => {
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
@@ -131,7 +130,7 @@ const Feedback = () => {
     const handleDelete = async (id) => {
         if (window.confirm("Are you sure you want to delete this feedback?")) {
             try {
-                await axios.delete(`http://localhost:5000/api/feedback/${id}`);
+                await axios.delete(`http://localhost:5000/feedback/${id}`);
                 setSubmittedFeedbacks(submittedFeedbacks.filter(fb => fb._id !== id));
                 alert("Feedback deleted successfully!");
             } catch (error) {
@@ -140,7 +139,7 @@ const Feedback = () => {
             }
         }
     };
-
+    
     const renderStars = (rating) => {
         return [...Array(5)].map((_, i) => (
             <FaStar 
@@ -155,7 +154,13 @@ const Feedback = () => {
         <div>
             <CustomerDashboard/>
             <div className="feedback-container">
-                <h1>{productName ? `Feedback for ${productName}` : "Feedback Form"}</h1>
+                <h1>
+                    {feedback.type === "feedback"
+                        ? productName
+                            ? `Feedback for ${productName}`
+                            : "Feedback Form"
+                        : "Support Request Form"}
+                </h1>
                 
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">

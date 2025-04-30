@@ -1,184 +1,203 @@
+/* Product Detail Container */
 .product-detail-container {
     max-width: 1200px;
     margin: 30px auto;
     padding: 20px;
     display: flex;
     gap: 40px;
-}
-
-.product-detail-image {
+    background-color: #f1f8e9; /* Light greenish background */
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Product Detail Image */
+  .product-detail-image {
     flex: 1;
-}
-
-.product-detail-image img {
+  }
+  
+  .product-detail-image img {
     width: 100%;
     max-height: 500px;
     object-fit: cover;
     border-radius: 8px;
-}
-
-.product-detail-info {
+  }
+  
+  /* Product Detail Info */
+  .product-detail-info {
     flex: 1;
-}
-
-.product-detail-info h1 {
+  }
+  
+  .product-detail-info h1 {
     color: #2e7d32;
     margin-bottom: 20px;
-}
-
-.product-detail-info .price {
+  }
+  
+  .product-detail-info .price {
     font-size: 24px;
     font-weight: bold;
     color: #333;
     margin-bottom: 20px;
-}
-
-.product-detail-info .description {
+  }
+  
+  .product-detail-info .description {
     line-height: 1.6;
     color: #555;
     margin-bottom: 30px;
-}
-
-.product-actions {
+  }
+  
+  /* Product Actions */
+  .product-actions {
     display: flex;
     gap: 15px;
     margin-bottom: 20px;
-}
-
-.product-actions button {
-    padding: 10px 20px;
+  }
+  
+  .product-actions button {
+    padding: 12px 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
     font-weight: bold;
-}
-
-.product-actions .add-cart {
-    background-color: #4caf50;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .product-actions .add-cart {
+    background-color: #43a047;
     color: white;
-}
-
-.product-actions .add-cart:disabled {
+  }
+  
+  .product-actions .add-cart:disabled {
     background-color: #cccccc;
     cursor: not-allowed;
-}
-
-.product-actions .buy-now {
-    background-color: #ff9800;
+  }
+  
+  .product-actions .buy-now {
+    background-color: #689f38;
     color: white;
-}
-
-.product-actions .buy-now:disabled {
+  }
+  
+  .product-actions .buy-now:disabled {
     background-color: #cccccc;
     cursor: not-allowed;
-}
-
-.feedback-link {
+  }
+  
+  /* Feedback Link (Clickable) */
+  .feedback-link {
     display: inline-block;
-    color: #2196f3;
-    text-decoration: none;
-    margin-top: 20px;
-}
-
-.feedback-link:hover {
+    color: #4caf50;
     text-decoration: underline;
-}
-
-.in-stock {
+    font-weight: 500;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+  
+  .feedback-link:hover {
+    text-decoration: underline;
+    color: #388e3c;
+  }
+  
+  /* Stock Labels */
+  .in-stock {
     color: #2e7d32;
     font-weight: bold;
-}
-
-.out-of-stock {
+  }
+  
+  .out-of-stock {
     color: #c62828;
     font-weight: bold;
-}
-/* Add to ProductDetail.css */
-.loading {
+  }
+  
+  /* Loading and Error Messages */
+  .loading {
     text-align: center;
     padding: 40px;
     color: #2e7d32;
     font-size: 18px;
-}
-
-.error {
+  }
+  
+  .error {
     text-align: center;
     padding: 40px;
     color: #c62828;
     font-size: 18px;
-}
-/* Add these styles to your existing ProductDetail.css */
-
-.add-note {
+  }
+  
+  /* Add Note Button */
+  .add-note {
     background-color: #2196f3;
     color: white;
-    padding: 10px 15px;
+    padding: 12px 15px;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
     font-weight: bold;
     margin: 5px;
-}
-
-.add-note:hover {
-    background-color: #0b7dda;
-}
-
-.modal-overlay {
+  }
+  
+  .add-note:hover {
+    background-color: #1976d2;
+  }
+  
+  /* Modal Overlay */
+  .modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
-}
-
-.note-modal {
+  }
+  
+  /* Modal */
+  .note-modal {
     background-color: white;
-    padding: 20px;
-    border-radius: 8px;
+    padding: 25px;
+    border-radius: 10px;
     width: 400px;
     max-width: 90%;
-}
-
-.note-modal h3 {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .note-modal h3 {
     margin-top: 0;
-    color: #333;
-}
-
-.note-modal textarea {
+    color: #2e7d32;
+  }
+  
+  .note-modal textarea {
     width: 100%;
     height: 100px;
     margin: 10px 0;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    padding: 10px;
+    border: 1px solid #c8e6c9;
+    border-radius: 6px;
     resize: vertical;
-}
-
-.modal-buttons {
+  }
+  
+  /* Modal Buttons */
+  .modal-buttons {
     display: flex;
     justify-content: flex-end;
     gap: 10px;
-}
-
-.modal-buttons button {
-    padding: 8px 15px;
+  }
+  
+  .modal-buttons button {
+    padding: 12px 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
-}
-
-.modal-buttons button:first-child {
-    background-color: #4caf50;
+    font-weight: bold;
+  }
+  
+  .modal-buttons button:first-child {
+    background-color: #43a047;
     color: white;
-}
-
-.modal-buttons button:last-child {
-    background-color: #f44336;
+  }
+  
+  .modal-buttons button:last-child {
+    background-color: #e53935;
     color: white;
-}
+  }
