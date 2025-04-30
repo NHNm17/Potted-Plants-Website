@@ -93,7 +93,7 @@ const ProductDetail = () => {
                     >
                         <h2>Feedback and Support</h2>
                     </a>
-                    <p>Press this to view previous Feedbacks and to add new feedbacks and Support requests.</p>
+                    <p color="black">Press Feedback and Support to view previous Feedbacks and to add new feedbacks and Support requests.</p>
                 </div>
             </div>
         </div>
