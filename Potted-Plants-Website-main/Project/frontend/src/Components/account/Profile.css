@@ -1,182 +1,139 @@
+/* Container layout */
 .profile-container {
   display: flex;
   min-height: 100vh;
-  background-color: #f9f9f9;
+  background-color: #f4fef6;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+
+/* Sidebar */
 .sidebar {
   width: 250px;
-  background: #2c3e50;
+  background-color: #062f07;
   color: white;
-  padding: 20px;
+  padding: 2rem 1.5rem;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  justify-content: space-between;
 }
 
+
 .sidebar h2 {
-  margin-bottom: 20px;
-  font-size: 22px;
-  font-weight: bold;
-  color: azure;
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  border-bottom: 2px solid #fff;
+  padding-bottom: 0.5rem;
+  color: #f4fef6;
 }
+
 
 .sidebar ul {
   list-style: none;
   padding: 0;
-  width: 100%;
+  margin: 0;
+  flex-grow: 1;
 }
+
 
 .sidebar ul li {
-  width: 100%;
+  margin-bottom: 1rem;
 }
 
-.sidebar ul li a {
-  display: block;
+
+.sidebar ul a {
   text-decoration: none;
   color: white;
-  padding: 10px;
-  border-radius: 5px;
-  transition: background 0.3s;
+  font-size: 1rem;
+  transition: color 0.3s;
 }
 
-.sidebar ul li a:hover, .sidebar ul li a.active {
-  background: #34495e;
+
+.sidebar ul a.active,
+.sidebar ul a:hover {
+  color: #c8e6c9;
+  font-weight: bold;
 }
+
+
+/* Buttons in Sidebar */
+.back-btn,
+.logout-btn {
+  padding: 0.7rem 1rem;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+
+.back-btn {
+  background-color: #66bb6a;
+  color: white;
+}
+
+
+.back-btn:hover {
+  background-color: #4caf50;
+}
+
 
 .logout-btn {
-  margin-top: auto;
-  width: 100%;
-  padding: 10px;
-  background: #e74c3c;
+  background-color: #c62828;
   color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s;
+  margin-top: 30px;
 }
+
 
 .logout-btn:hover {
-  background: #c0392b;
+  background-color: #b71c1c;
 }
 
+
+/* Profile content area */
 .profile-content {
   flex: 1;
-  padding: 40px;
-  background: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  margin: 40px;
+  padding: 3rem;
+  background-color: #ffffff;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  box-shadow: -5px 0 10px rgba(0, 0, 0, 0.05);
 }
 
-.profile-details h3 {
-  margin-bottom: 10px;
-  font-size: 18px;
+
+.profile-content h2 {
+  font-size: 1.8rem;
+  color: #2e7d32;
+  margin-bottom: 2rem;
 }
+
+
+.profile-details h3 {
+  font-size: 1.1rem;
+  margin: 1rem 0;
+  color: #0f0f0f;
+}
+
 
 .bttn-update {
   display: inline-block;
-  padding: 10px 20px;
-  margin-top: 15px;
-  background: #3498db;
+  margin-top: 1.5rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #2e7d32;
   color: white;
   text-decoration: none;
-  border-radius: 5px;
-  transition: background 0.3s;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background-color 0.3s;
 }
+
 
 .bttn-update:hover {
-  background: #2980b9;
+  background-color: #1b5e20;
 }
 
-.back-btn {
-  margin-top: 20px;
-  padding: 10px 15px;
-  background: #95a5a6;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.back-btn:hover {
-  background: #7f8c8d;
-}
-
-.orders-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-.orders-table th, .orders-table td {
-  padding: 10px;
-  border: 1px;
-  text-align: left;
-  color: black;
-}
-
-.orders-table th {
-  background-color:grey;
-}
-
-.btn-delete {
-  background-color: red;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-}
-
-.btn-delete:hover {
-  background-color: darkred;
-}
-
-.order-row {
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.order-row:hover {
-  background-color: #f0f0f0;
-}
-
-.order-items-row {
-  background-color: #fafafa;
-}
-
-.items-container {
-  padding: 10px;
-}
-
-.item-list {
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
-}
-
-.item-list li {
-  padding: 4px 0;
-  border-bottom: 1px solid #ddd;
-}
-
-.item-name {
-  font-weight: 500;
-  color: #333;
-}
-
-.btn-delete {
-  background-color: #e74c3c;
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.btn-delete:hover {
-  background-color: #c0392b;
-}
 
 

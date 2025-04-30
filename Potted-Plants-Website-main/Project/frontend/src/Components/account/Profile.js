@@ -3,9 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 import "./Profile.css";
 
+
 function Profile() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
+
 
   return (
     <div className="profile-container">
@@ -16,13 +18,14 @@ function Profile() {
           <li><Link to="/profile" className="active">Profile</Link></li>
           <li><Link to="/orderhistory">My Orders</Link></li>
           <li><Link to="/DeliveryInfo">Delivery Options</Link></li>
-          <li><Link to="/loyalty">Loyalty Points</Link></li>
+ 
         </ul>
-        <button className="back-btn" onClick={() => navigate("/customer-dashboard")}>
+        <button className="back-btn" onClick={() => navigate("/product-page")}>
           &larr; Back to Dashboard
         </button>
         <button className="logout-btn" onClick={logout}>Logout</button>
       </aside>
+
 
       {/* Profile Content */}
       <main className="profile-content">
@@ -34,9 +37,13 @@ function Profile() {
           <Link to="/update-profile" className="bttn-update">Update Profile</Link>
         </div>
       </main>
-      
+     
     </div>
   );
 }
 
+
 export default Profile;
+
+
+

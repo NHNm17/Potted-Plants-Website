@@ -1,0 +1,109 @@
+/* AddDelivery.css */
+
+.add-delivery-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .add-delivery-container h2 {
+    color: #06080a;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+  }
+  
+  .radio-group {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+  }
+  
+  .radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-weight: 500;
+  }
+  
+  input[type="radio"] {
+    accent-color: #127933;
+    width: 1rem;
+    height: 1rem;
+  }
+  
+  .delivery-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .section {
+    padding: 1.5rem;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+  }
+  
+  .section h3 {
+    color: #127933;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .field label {
+    color: #555;
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+  
+  .field input,
+  .field textarea {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+  }
+  
+  .field textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  .submit-button {
+    padding: 1rem;
+    background-color: #3498db;
+    color: #fff;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 1.5rem;
+  }
+  
+  .submit-button:hover {
+    background-color: #2980b9;
+  }

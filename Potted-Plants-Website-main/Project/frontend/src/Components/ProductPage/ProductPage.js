@@ -113,7 +113,7 @@ const ProductPage = () => {
                 onClick={() => addToWishlist(product)}
                 title="Add to Wishlist"
               >
-                <FaHeart color="crimson" />
+                ❤️
               </button>
 
 
