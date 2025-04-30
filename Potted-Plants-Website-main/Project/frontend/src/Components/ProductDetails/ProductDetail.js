@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./ProductDetail.css";
+import { useCart } from "../context/cartContext";
 import CustomerDashboard from "../Dashboard/CustomerDashboard";
+import { toast } from "react-toastify";
 
 
 const ProductDetail = () => {
@@ -11,6 +13,11 @@ const ProductDetail = () => {
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const { addToCart } = useCart();
+
+    const handleCheckout = () => {
+        navigate('/adddelivery', {});
+    };
 
     useEffect(() => {
         const fetchProduct = async () => {
@@ -57,12 +64,28 @@ const ProductDetail = () => {
                         {product.stock > 0 ? `In Stock: ${product.stock}` : "Out of Stock"}
                     </p>
                     <div className="product-actions">
-                        <button className="add-cart" disabled={product.stock === 0}>
-                            {product.stock > 0 ? "Add to Cart" : "Sold Out"}
-                        </button>
-                        <button className="buy-now" disabled={product.stock === 0}>
-                            {product.stock > 0 ? "Buy Now" : "Sold Out"}
-                        </button>
+                        <button
+                                        onClick={() => {
+                                          addToCart(product);
+                                          toast.success(`${product.name} added to cart! 🛒`, {
+                                            position: "top-right",
+                                            autoClose: 2000,
+                                            hideProgressBar: false,
+                                            closeOnClick: true,
+                                            pauseOnHover: true,
+                                            draggable: true,
+                                            progress: undefined,
+                                            theme: "colored",
+                                          });
+                                        }}
+                                        className="add-cart"
+                                        disabled={product.stock === 0}
+                                      >
+                                        {product.stock > 0 ? "Add to Cart" : "Sold Out"}
+                                      </button>
+                                      <button className="buy-now" disabled={product.stock === 0} onClick={handleCheckout}>
+                {product.stock > 0 ? "Buy Now" : "Sold Out"}
+              </button>
                     </div>
                     <a 
                         href={`/feedback?product=${encodeURIComponent(product.name)}`} 

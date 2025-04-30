@@ -239,7 +239,7 @@ const Feedback = () => {
                     
                     <button type="submit" className="submit-btn" disabled={loading}>
                         {loading ? "Processing..." : 
-                         (editingId ? "Update Feedback" : "Submit Feedback")}
+                         (editingId ? "Update" : "Submit")}
                     </button>
                     {editingId && (
                         <button 

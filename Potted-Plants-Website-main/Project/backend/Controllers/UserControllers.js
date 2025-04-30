@@ -23,7 +23,9 @@ const RegisterUser = async (req, res) => {
       role = "UserAdmin"; // Exact case matching
     } else if (email.endsWith("@productadmin.com")) {
       role = "ProductAdmin";
-    }
+    }else if (email.endsWith("@deliveryadmin.com")) {
+      role = "DeliveryAdmin";
+      }
 
     // Create user
     user = new User({
