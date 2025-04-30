@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "./Profile.css";
+import "./OrderHistory.css"
 
 function OrderHistory() {
   const [orders, setOrders] = useState([]);
@@ -59,9 +60,6 @@ function OrderHistory() {
           </li>
           <li>
             <Link to="/DeliveryInfo">Delivery Options</Link>
-          </li>
-          <li>
-            <Link to="/loyalty">Loyalty Points</Link>
           </li>
         </ul>
         <button

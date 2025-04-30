@@ -16,7 +16,7 @@ function Profile() {
           <li><Link to="/profile" className="active">Profile</Link></li>
           <li><Link to="/orderhistory">My Orders</Link></li>
           <li><Link to="/DeliveryInfo">Delivery Options</Link></li>
-          <li><Link to="/loyalty">Loyalty Points</Link></li>
+  
         </ul>
         <button className="back-btn" onClick={() => navigate("/product-page")}>
           &larr; Back to Dashboard
