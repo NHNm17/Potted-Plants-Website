@@ -56,34 +56,74 @@ export default function Checkout() {
   };
 
 
-  const handleCardPayment = (e) => {
+  const handleCardPayment = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
-    localStorage.removeItem('checkoutData');
-    navigate('/success', {
-      state: {
-        orderId: `PP${Date.now()}${Math.floor(Math.random() * 1000)}`,
-        amount: total,
-        items,
-        paymentMethod: 'card'
+  
+    const orderData = {
+      orderId: `PP${Date.now()}${Math.floor(Math.random() * 1000)}`,
+      items,
+      amount: total,
+      paymentMethod: 'card',
+      customerDetails: {
+        fullName: cardDetails.nameOnCard
       }
-    });
+    };
+  
+    try {
+      const response = await fetch('http://localhost:5000/orders', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(orderData)
+      });
+  
+      const result = await response.json();
+      if (response.ok) {
+        localStorage.removeItem('checkoutData');
+        navigate('/success', { state: orderData });
+      } else {
+        alert(result.error || 'Failed to place order');
+      }
+    } catch (err) {
+      console.error('Order error:', err);
+      alert('Something went wrong!');
+    }
   };
+  
 
 
-  const handleCODPayment = (e) => {
+  const handleCODPayment = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
-    navigate('/ordersucess', {
-      state: {
-        orderId: `PP${Date.now()}${Math.floor(Math.random() * 1000)}`,
-        amount: total,
-        items,
-        details: codDetails,
-        paymentMethod: 'cod'
+  
+    const orderData = {
+      orderId: `PP${Date.now()}${Math.floor(Math.random() * 1000)}`,
+      items,
+      amount: total,
+      paymentMethod: 'cod',
+      customerDetails: codDetails
+    };
+  
+    try {
+      const response = await fetch('http://localhost:5000/orders', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(orderData)
+      });
+  
+      const result = await response.json();
+      if (response.ok) {
+        localStorage.removeItem('checkoutData');
+        navigate('/ordersucess', { state: orderData });
+      } else {
+        alert(result.error || 'Failed to place order');
       }
-    });
+    } catch (err) {
+      console.error('Order error:', err);
+      alert('Something went wrong!');
+    }
   };
+  
 
 
   return (

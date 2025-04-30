@@ -8,8 +8,10 @@ router.post('/', async (req, res) => {
   try {
     const { orderId, items, amount, paymentMethod, customerDetails } = req.body;
 
+    console.log("Received order data:", req.body);
+
     const newOrder = new Order({
-      orderId: crypto.randomBytes(12).toString('hex'),
+      orderId,
       items,
       amount,
       paymentMethod,
@@ -34,6 +36,22 @@ router.get('/', async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch orders' });
   }
 });
+
+// Get order by orderId
+router.get('/:orderId', async (req, res) => {
+    try {
+      const order = await Order.findOne({ orderId: req.params.orderId });
+      
+      if (!order) {
+        return res.status(404).json({ error: 'Order not found' });
+      }
+      res.json(order);
+    } catch (error) {
+      console.error('Error fetching order:', error);
+      res.status(500).json({ error: 'Failed to fetch order' });
+    }
+  });
+  
 
 router.delete('/:id', async (req, res) => {
   try {
