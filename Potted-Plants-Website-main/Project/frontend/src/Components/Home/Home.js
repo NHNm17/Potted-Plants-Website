@@ -3,6 +3,7 @@ import "./home.css"
 import Nav from '../Layout/Nav'
 
 
+
 function Home() {
   return (
     <div>
@@ -11,8 +12,9 @@ function Home() {
       
       {/* Hero Section */}
       <section className="hero-section">
-        <h2>Welcome to Potted Plants SL</h2>
+        <h1>Welcome to Potted Plants SL</h1>
         <p>Bringing Nature to Your Doorstep with Fresh and Healthy Plants!</p>
+        <p>Discover the joy of sustainable shopping with our handpicked selections.</p>
       </section>
 
       {/* Featured Products */}

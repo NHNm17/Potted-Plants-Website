@@ -6,22 +6,20 @@
   flex-wrap: wrap;
   padding: 15px 30px;
   background-color: #333;
-  border-bottom: 1px solid #333;
-  font-family: 'Segoe UI', sans-serif;
+  border-bottom: 1px solid #444;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
 
 /* Logo */
 .logo {
-  height: 50px;
-  margin-right: 20px;
+  height: 90px;
+  margin-right: 10px;
 }
-
 
 /* Navigation Bar */
 .nav-bar {
   display: flex;
-  gap: 20px;
+  gap: 30px; /* More space between nav items */
   list-style: none;
   padding: 0;
   margin: 0;
@@ -30,11 +28,10 @@
   flex-wrap: wrap;
 }
 
-
 .nav-bar li {
   margin: 0;
+  padding: 0 10px; /* Extra internal spacing per link */
 }
-
 
 .nav-bar a {
   text-decoration: none;
@@ -44,50 +41,61 @@
   transition: color 0.3s ease;
 }
 
-
 .nav-bar a:hover {
   text-decoration: underline;
   color: #4CAF50;
 }
 
-
-/* User Greeting & Cart */
+/* User Greeting, Cart & Logout */
 .user-cart-container {
   display: flex;
   align-items: center;
   gap: 15px;
 }
 
-
+/* Keep greeting on the left */
 .auth-text {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   margin: 0;
-  color: white;
+  color: #f1f1f1;
+  margin-right: 10px;
+  white-space: nowrap;
 }
 
+/* Group cart and logout buttons together */
+.button-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Shared Button Styles */
+.cart-button,
+.logout-btn {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
 
 /* Cart Button */
 .cart-button {
   background-color: #4CAF50;
-  border: none;
   color: white;
-  padding: 8px 16px;
-  font-size: 14px;
-  font-weight: 600;
-  border-radius: 20px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
   position: relative;
 }
-
 
 .cart-button:hover {
   background-color: #45a049;
 }
 
-
+/* Cart Count Badge */
 .cart-count {
   background-color: white;
   color: #4CAF50;
@@ -98,26 +106,15 @@
   position: absolute;
   top: -8px;
   right: -8px;
+  box-shadow: 0 0 0 2px #4CAF50;
 }
-
 
 /* Logout Button */
 .logout-btn {
-  background-color: red;
+  background-color: #e53935;
   color: white;
-  padding: 8px 14px;
-  border: none;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 600;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
 }
-
 
 .logout-btn:hover {
-  background-color: darkred;
+  background-color: #c62828;
 }
-
-
-
