@@ -23,14 +23,14 @@ function Home() {
         <h2>Our Bestsellers</h2>
         <div className="products">
           <div className="product-card">
-            <img src="spider plant.jpg" alt="Spider Plant" />
+            <img src="spiderplant.jpg" alt="Spider Plant" />
             <h3>Spider Plant <pre>Rs.600</pre></h3>
             <p>Air purifying & easy maintenance</p>
             <button className="add-cart">Add to Cart</button>
             <button className="buy-now">Buy Now</button>
           </div>
           <div className="product-card">
-            <img src="Nuga plant.jpg" alt="Nuga Plant" />
+            <img src="Nugaplant.jpg" alt="Nuga Plant" />
             <h3>Nuga Plant <pre>Rs.600</pre></h3>
             <p>Brings good luck & prosperity</p>
             <button className="add-cart">Add to Cart</button>

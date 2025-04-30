@@ -73,7 +73,7 @@ const DeliveryTracking = () => {
               {new Date(deliveryData.createdAt).toLocaleDateString()}
             </p>
             <p>
-              <strong>Customer Name:</strong> {user?.fullName || "N/A"}
+              <strong>Customer Name:</strong> {user?.name || "N/A"}
             </p>
             <p>
               <strong>Phone:</strong> {user?.phone || "N/A"}
