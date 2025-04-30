@@ -1,8 +1,11 @@
 import React from 'react';
 import './PrivacyPolicy.css';
+import CustomerDashboard from '../Dashboard/CustomerDashboard';
 
 const PrivacyPolicy = () => {
   return (
+    <div>
+      <CustomerDashboard/>
     <div className="privacy-policy-container">
       <div className="privacy-policy-content">
         <h1>🔒 Privacy Policy</h1>
@@ -60,6 +63,7 @@ const PrivacyPolicy = () => {
           <a href="/" className="back-button">⬅ Back to Home</a>
         </div>
       </div>
+    </div>
     </div>
   );
 };

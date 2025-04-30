@@ -38,9 +38,10 @@ import AIchatbot from "./Components/AIchatbot/AIchatbot";
 import useCart from './Components/Cart/useCart';
 import OrderHistory from "./Components/account/OrderHistory";
 import DeliveryDashboard from "./Components/Dashboard/DeliveryDashboard";
-
-
-
+import AboutUs from "./Components/AboutUs/AboutUs";
+import ContactUs from "./Components/ContactUs/ContactUs";
+import PrivacyPolicy from "./Components/PrivacyPolicy/PrivacyPolicy";
+import TermsAndCondition from "./Components/TermsAndCondition/TermsAndCondition"
 
 
 import "./App.css";
@@ -110,7 +111,10 @@ function App() {
                 element={<Wishlist wishlistItems={wishlist} removeFromWishlist={removeFromWishlist} />}
               />
           <Route path="/aichatbot" element={<AIchatbot/>}/>
-         
+          <Route path="/aboutus" element={<AboutUs/>}/>
+          <Route path="/contactus" element={<ContactUs/>}/>
+          <Route path="/privacypolicy" element={<PrivacyPolicy/>}/>
+          <Route path="/termsandcondition" element={<TermsAndCondition/>}/>
          
         </Routes>
         <ToastContainer />

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './ContactUs.css';
+import CustomerDashboard from '../Dashboard/CustomerDashboard';
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -23,6 +24,8 @@ const ContactUs = () => {
   };
 
   return (
+    <div>
+      <CustomerDashboard/>
     <div className="contact-us-container">
       <div className="contact-us-content">
         <h1>📬 Contact Us</h1>
@@ -98,6 +101,7 @@ const ContactUs = () => {
 
         <a href="/" className="back-button">⬅ Back to Home</a>
       </div>
+    </div>
     </div>
   );
 };

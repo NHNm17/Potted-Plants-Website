@@ -1,9 +1,12 @@
 import React from 'react';
 
 import './TermsAndCondition.css';
+import CustomerDashboard from '../Dashboard/CustomerDashboard';
 
 const TermsAndConditions = () => {
   return (
+    <div>
+      <CustomerDashboard/>
     <div className="terms-container">
       <div className="terms-content">
         <h1>📜 Terms and Conditions</h1>
@@ -67,6 +70,7 @@ const TermsAndConditions = () => {
           <a href="/" className="back-button">⬅ Back to Home</a>
         </div>
       </div>
+    </div>
     </div>
   );
 };

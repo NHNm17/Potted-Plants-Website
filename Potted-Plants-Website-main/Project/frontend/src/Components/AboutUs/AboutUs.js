@@ -1,8 +1,11 @@
 import React from 'react';
 import './AboutUs.css';
+import CustomerDashboard from '../Dashboard/CustomerDashboard';
 
 const AboutUs = () => {
   return (
+    <div>
+      <CustomerDashboard/>
     <div className="about-us-container">
       <div className="about-us-content">
         <h1>🌿 About Us</h1>
@@ -46,6 +49,7 @@ const AboutUs = () => {
 
         <a href="/" className="back-button">⬅ Back to Home</a>
       </div>
+    </div>
     </div>
   );
 };
