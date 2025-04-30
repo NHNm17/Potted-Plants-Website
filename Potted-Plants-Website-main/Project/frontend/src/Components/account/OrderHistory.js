@@ -64,7 +64,7 @@ function OrderHistory() {
         </ul>
         <button
           className="back-btn"
-          onClick={() => navigate("/customer-dashboard")}
+          onClick={() => navigate("/product-page")}
         >
           &larr; Back to Dashboard
         </button>
