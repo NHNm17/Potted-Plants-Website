@@ -1,217 +1,221 @@
 /* Base Styles */
 body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(to right, #e8f5e9, #f1f8e9);
-    color: #2e7d32;
-  }
-  
-  /* Container */
-  .product-container {
-    padding: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  /* Heading */
-  .product-container h2 {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #1b5e20;
-    font-size: 2rem;
-    letter-spacing: 0.5px;
-  }
-  
-  /* Grid Layout */
-  .product-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 25px;
-  }
-  
-  /* Product Card */
-  .product-card {
-    position: relative;
-    border-radius: 12px;
-    padding: 20px;
-    background-color: #ffffff;
-    text-align: center;
-    box-shadow: 0 6px 14px rgba(76, 175, 80, 0.12);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .product-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 24px rgba(76, 175, 80, 0.2);
-  }
-  
-  .product-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 15px;
-  }
-  
-  .product-card h3 {
-    margin: 10px 0;
-    color: #1b5e20;
-    font-size: 1.2rem;
-  }
-  
-  .product-card p {
-    margin: 5px 0;
-    color: #4e944f;
-  }
-  
-  /* Stock Labels */
-  .in-stock {
-    color: #2e7d32;
-    font-weight: bold;
-  }
-  
-  .out-of-stock {
-    color: #c62828;
-    font-weight: bold;
-  }
-  
-  /* Buttons */
-  .add-cart,
-  .buy-now,
-  .add-note {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin: 6px 0;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-  }
-  
-  .add-cart {
-    background-color: #43a047;
-    color: white;
-  }
-  
-  .add-cart:disabled {
-    background-color: #bdbdbd;
-    cursor: not-allowed;
-  }
-  
-  .buy-now {
-    background-color: #689f38;
-    color: white;
-  }
-  
-  .buy-now:disabled {
-    background-color: #bdbdbd;
-    cursor: not-allowed;
-  }
-  
-  .add-note {
-    background-color: #558b2f;
-    color: white;
-  }
-  
-  /* Feedback Link */
-  .feedback-link {
-    display: block;
-    margin-top: 12px;
-    color: #33691e;
-    text-decoration: none;
-    font-weight: 500;
-  }
-  
-  .feedback-link:hover {
-    text-decoration: underline;
-  }
-  
-  /* Wishlist Icon */
-  .wishlist-icon {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    z-index: 1;
-    font-size: 1.5rem;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .filled-heart {
-    color: red;
-  }
-  
-  .empty-heart {
-    color: #4e944f;
-  }
-  
-  /* Modal Styles */
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-  
-  .note-modal {
-    background-color: #ffffff;
-    padding: 25px;
-    border-radius: 10px;
-    width: 400px;
-    max-width: 90%;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  }
-  
-  .note-modal h3 {
-    margin-top: 0;
-    color: #2e7d32;
-  }
-  
-  .note-modal textarea {
-    width: 100%;
-    height: 100px;
-    margin: 10px 0;
-    padding: 10px;
-    border: 1px solid #c8e6c9;
-    border-radius: 6px;
-    resize: vertical;
-  }
-  
-  /* Modal Buttons */
-  .modal-buttons {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-  }
-  
-  .modal-buttons button {
-    padding: 10px 16px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-  }
-  
-  .modal-buttons button:first-child {
-    background-color: #43a047;
-    color: white;
-  }
-  
-  .modal-buttons button:last-child {
-    background-color: #e53935;
-    color: white;
-  }
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #e8f5e9, #f1f8e9);
+  color: #2e7d32;
+}
+
+/* Container */
+.product-container {
+  padding: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Heading */
+.product-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #1b5e20;
+  font-size: 2rem;
+  letter-spacing: 0.5px;
+}
+
+/* Grid Layout */
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+/* Product Card */
+.product-card {
+  position: relative;
+  border-radius: 12px;
+  padding: 20px;
+  background-color: #ffffff;
+  text-align: center;
+  box-shadow: 0 6px 14px rgba(76, 175, 80, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(76, 175, 80, 0.2);
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.product-card h3 {
+  margin: 10px 0;
+  color: #1b5e20;
+  font-size: 1.2rem;
+}
+
+.product-card p {
+  margin: 5px 0;
+  color: #4e944f;
+}
+
+/* Stock Labels */
+.in-stock {
+  color: #2e7d32;
+  font-weight: bold;
+}
+
+.out-of-stock {
+  color: #c62828;
+  font-weight: bold;
+}
+
+/* Buttons */
+.add-cart,
+.buy-now,
+.add-note {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 6px 0;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-cart {
+  background-color: #43a047;
+  color: white;
+}
+
+.add-cart:disabled {
+  background-color: #bdbdbd;
+  cursor: not-allowed;
+}
+
+.buy-now {
+  background-color: #689f38;
+  color: white;
+}
+
+.buy-now:disabled {
+  background-color: #bdbdbd;
+  cursor: not-allowed;
+}
+
+.add-note {
+  background-color: #558b2f;
+  color: white;
+}
+
+/* Feedback Link */
+.feedback-link {
+  display: block;
+  margin-top: 12px;
+  color: #33691e;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.feedback-link:hover {
+  text-decoration: underline;
+}
+
+/* Wishlist Icon */
+.wishlist-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  z-index: 1;
+  font-size: 1.5rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filled-heart {
+  color: red;
+}
+
+.empty-heart {
+  color: #4e944f;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.note-modal {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 10px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.note-modal h3 {
+  margin-top: 0;
+  color: #2e7d32;
+}
+
+.note-modal textarea {
+  width: 100%;
+  height: 100px;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #c8e6c9;
+  border-radius: 6px;
+  resize: vertical;
+}
+
+/* Modal Buttons */
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.modal-buttons button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.modal-buttons button:first-child {
+  background-color: #43a047;
+  color: white;
+}
+
+.modal-buttons button:last-child {
+  background-color: #e53935;
+  color: white;
+}
+
+
+
+

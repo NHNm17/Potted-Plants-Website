@@ -9,16 +9,17 @@ const mongoose = require("mongoose");
 
 
 
-const orderRoute = require("./Route/OrderRoutes");
+
 const addressRoute = require("./Route/AddressRoutes");
 const userRoute = require("./Route/UserRoutes");
 const adminRoute = require("./Route/AdminRoutes");
 const productRoutes = require('./Route/products');
 const feedbackRoutes = require('./Route/feedback');
 const noteRoutes = require('./Route/notes');
-const router = require("./Route/deliveryRoute");
+const deliveryRoutes  = require("./Route/deliveryRoute");
 const wishlist = require('./Route/Wishlist');
 const orderRoutes = require("./Route/OrderRoutes");
+const deliveryPartnerRoutes = require("./Route/DeliveryPartnerRoutes");
 
 
 
@@ -31,16 +32,17 @@ const app = express();
 //Middleware
 app.use(express.json());
 app.use(cors());
-app.use("/orders", orderRoute);
+
 app.use("/address",addressRoute)
 app.use('/auth',userRoute);
 app.use('/admin',adminRoute);
 app.use('/products', productRoutes);
 app.use('/feedback', feedbackRoutes);
 app.use('/api/notes', noteRoutes);
-app.use('/Delivery', router);
+app.use('/Delivery', deliveryRoutes );
 app.use('/wishlist', wishlist);
 app.use('/orders', orderRoutes);
+app.use("/delivery-partners", deliveryPartnerRoutes);
 
 
 

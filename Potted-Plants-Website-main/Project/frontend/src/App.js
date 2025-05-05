@@ -45,11 +45,6 @@ import TermsAndCondition from "./Components/TermsAndCondition/TermsAndCondition"
 
 
 
-
-
-import "./App.css";
-
-
 function App() {
   const [wishlist, setWishlist] = useState([]);
 

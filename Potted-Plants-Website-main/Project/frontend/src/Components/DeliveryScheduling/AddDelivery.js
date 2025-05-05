@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import "./AddDelivery.css";
+import { useNavigate } from "react-router-dom";
 import CustomerDashboard from "../Dashboard/CustomerDashboard";
 
 const AddDelivery = () => {
+  const navigate = useNavigate();
   const [orderType, setOrderType] = useState("self");
   const [inputs, setInputs] = useState({
     firstName: "",
@@ -32,7 +34,7 @@ const AddDelivery = () => {
       orderType,
     };
 
-    fetch("http://localhost:5000/api/delivery/add-delivery", {
+    fetch("http://localhost:5000/delivery/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
@@ -41,6 +43,7 @@ const AddDelivery = () => {
       .then((data) => {
         alert("Delivery added successfully!");
         console.log(data);
+        navigate("/checkout");
       })
       .catch((error) => {
         alert("Failed to add delivery.");
@@ -220,23 +223,7 @@ const AddDelivery = () => {
           </>
         )}
 
-        <div className="section">
-          <h3>Billing</h3>
-          <div className="field-group">
-            <div className="field">
-              <label>Amount (RS)</label>
-              <input
-                type="number"
-                name="amount"
-                value={inputs.amount}
-                onChange={handleChange}
-                required
-              />
-            </div>
-          </div>
-        </div>
-
-        <button type="submit" className="submit-button">
+        <button type="submit" className="submit-button" navigate>
           Proceed to Checkout
         </button>
       </form>

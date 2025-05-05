@@ -40,8 +40,11 @@
   }
   
   .tab-btn.active {
-    background-color: #66bb6a; /* light green */
+    background-color: #2e7d32; /* light green */
     color: white;
+  }
+  .tab-btn:hover {
+    background-color: lightgreen;
   }
   
   .delivery-list {
@@ -59,7 +62,7 @@
   }
   
   .card h3 {
-    color: #2e7d32; /* dark green */
+    color: #66bb6a; /* dark green */
     margin-top: 0;
     margin-bottom: 1rem;
     border-bottom: 1px solid #d0e8d0;

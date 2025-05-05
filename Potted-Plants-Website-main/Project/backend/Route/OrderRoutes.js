@@ -95,5 +95,22 @@ router.put('/admin/assign/:id', async (req, res) => {
   }
 });
 
+// Get delivery partner details
+router.get('/admin/delivery/:id', async (req, res) => {
+  try {
+    const order = await Order.findById(req.params.id).select('deliveryPartner');
+
+    if (!order) {
+      return res.status(404).json({ error: 'Order not found' });
+    }
+
+    res.json({ deliveryPartner: order.deliveryPartner });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Failed to retrieve delivery partner details' });
+  }
+});
+
+
 
 module.exports = router;

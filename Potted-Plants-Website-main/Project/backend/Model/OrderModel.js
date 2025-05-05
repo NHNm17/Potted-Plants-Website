@@ -40,9 +40,10 @@ const orderSchema = new mongoose.Schema({
     default: 'Pending'
   },
   deliveryPartner: {
-    name: String,
-    contact: String,
-    vehicle: String
+    name: { type: String, required: true },
+    contact: { type: String, required: true },
+    vehicle: { type: String, required: true },
+    regdate: { type: Date, default: Date.now }
   }
   
 }, { timestamps: true });
