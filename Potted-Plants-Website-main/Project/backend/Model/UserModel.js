@@ -18,7 +18,7 @@ const UserSchema = new mongoose.Schema({
   },
   role: {
     type: String,
-    enum: ['customer', 'UserAdmin', 'ProductAdmin', 'DeliveryAdmin'],
+    enum: ['customer', 'UserAdmin', 'ProductAdmin', 'DeliveryAdmin','DeliveryPartners'],
     default: "customer",
   },
   date: {
@@ -32,6 +32,12 @@ const UserSchema = new mongoose.Schema({
   permissions: {
     type: [String],
     default: []
+  },
+  vehicleType:{
+    type: String,
+  },
+  vehicleNumber:{
+    type: String,
   }
 });
 

@@ -1,7 +1,8 @@
 import React from 'react'
 import "./home.css"
-import { useAuth } from '../context/authContext'
 import CustomerDashboard from '../Dashboard/CustomerDashboard';
+
+
 
 
 function Home() {
@@ -12,8 +13,9 @@ function Home() {
      
       {/* Hero Section */}
       <section className="hero-section">
-        <h2>Welcome to Potted Plants SL</h2>
+        <h1>Welcome to Potted Plants SL</h1>
         <p>Bringing Nature to Your Doorstep with Fresh and Healthy Plants!</p>
+        <p>Discover the joy of sustainable shopping with our handpicked selections.</p>
       </section>
 
 
@@ -47,6 +49,3 @@ function Home() {
 
 
 export default Home
-
-
-

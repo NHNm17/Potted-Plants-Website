@@ -92,3 +92,13 @@
     color: #2e7d32;
   }
   
+  .btn-download {
+    margin-left: 8px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  

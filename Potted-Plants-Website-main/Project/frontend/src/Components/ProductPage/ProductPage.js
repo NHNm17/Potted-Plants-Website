@@ -5,10 +5,13 @@ import axios from "axios";
 import CustomerDashboard from "../Dashboard/CustomerDashboard";
 import { useCart } from "../context/cartContext";
 import { toast } from "react-toastify";
-import { FaHeart } from "react-icons/fa"; // ❤️ Import heart icon
+
+
 
 
 const initialProducts = [];
+
+
 
 
 const ProductPage = () => {
@@ -17,7 +20,11 @@ const ProductPage = () => {
   const { addToCart } = useCart();
 
 
+
+
   const userId = "660c5b8f0d3f2b001f3d3e4a"; // Replace with dynamic userId later
+
+
 
 
   useEffect(() => {
@@ -33,12 +40,18 @@ const ProductPage = () => {
   }, []);
 
 
+
+
   const viewProductDetails = (productId) => {
     navigate(`/product/${productId}`);
   };
   const handleCheckout = () => {
     navigate('/adddelivery', {});
 };
+
+
+
+
 
 
 
@@ -53,10 +66,16 @@ const ProductPage = () => {
       };
 
 
+
+
       console.log("Sending wishlist payload:", payload); // 🐛 Debug log
 
 
+
+
       const response = await axios.post("http://localhost:5000/wishlist/add", payload);
+
+
 
 
       if (response.data.success) {
@@ -65,6 +84,8 @@ const ProductPage = () => {
           autoClose: 1500,
           theme: "colored",
         });
+
+
 
 
         setTimeout(() => {
@@ -88,7 +109,11 @@ const ProductPage = () => {
   };
 
 
+
+
  
+
+
 
 
   return (
@@ -107,14 +132,18 @@ const ProductPage = () => {
               />
 
 
+
+
               {/* ❤️ Heart Icon */}
               <button
                 className="wishlist-icon"
                 onClick={() => addToWishlist(product)}
                 title="Add to Wishlist"
               >
-                <FaHeart color="crimson" />
+                ❤️
               </button>
+
+
 
 
               <h3>{product.name}</h3>
@@ -123,6 +152,8 @@ const ProductPage = () => {
               <p className={product.stock === 0 ? "out-of-stock" : "in-stock"}>
                 {product.stock > 0 ? `Stock: ${product.stock}` : "Out of Stock"}
               </p>
+
+
 
 
               <button
@@ -146,9 +177,13 @@ const ProductPage = () => {
               </button>
 
 
+
+
               <button className="buy-now" disabled={product.stock === 0} onClick={handleCheckout}>
                 {product.stock > 0 ? "Buy Now" : "Sold Out"}
               </button>
+
+
 
 
               <a
@@ -166,7 +201,17 @@ const ProductPage = () => {
 };
 
 
+
+
 export default ProductPage;
+
+
+
+
+
+
+
+
 
 
 
